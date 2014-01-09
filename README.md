@@ -1,5 +1,5 @@
 # MSSlidingPanelController
-The `MSSlidingPanelController` is a library which allows to **easily integrate** in your project a **sliding panel controller** mechanism.
+The `MSSlidingPanelController` is a library which allows to **easily integrate** in your **iOS 7** project a **sliding panel controller** mechanism.
 
 <p align="center" >
 <img src="http://sebastienmichoy.github.io/MSSlidingPanelController/images/MSSlidingPanelController.png" />
