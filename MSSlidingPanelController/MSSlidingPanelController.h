@@ -237,6 +237,14 @@ typedef NS_ENUM(NSUInteger, MSSPSideDisplayed)
  */
 @property (nonatomic, assign)           BOOL                                    leftPanelStatusBarDisplayedSmoothly;
 
+/**
+ *  Set the maximum width of the left panel with.
+ *
+ *  @param maximumWidth Panel's maximum width.
+ *  @param completion   A block object to be executed when the maximum width is set.
+ */
+- (void)setLeftPanelMaximumWidth:(CGFloat)leftPanelMaximumWidth withCompletion:(void (^)(void))completion;
+
 #pragma mark Right panel settings
 /** @name Right panel settings */
 
@@ -288,6 +296,14 @@ typedef NS_ENUM(NSUInteger, MSSPSideDisplayed)
  *  By default, this value is `NO`.
  */
 @property (nonatomic, assign)           BOOL                                    rightPanelStatusBarDisplayedSmoothly;
+
+/**
+ *  Set the maximum width of the right panel with.
+ *
+ *  @param maximumWidth Panel's maximum width.
+ *  @param completion   A block object to be executed when the maximum width is set.
+ */
+- (void)setRightPanelMaximumWidth:(CGFloat)rightPanelMaximumWidth withCompletion:(void (^)(void))completion;
 
 #pragma mark Global settings
 /** @name Global settings */

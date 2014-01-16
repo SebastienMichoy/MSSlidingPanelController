@@ -92,8 +92,9 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
  *
  *  @param panelMaximumWidth Panel's maximum width.
  *  @param side              The side. Must not be `MSSPSideDisplayedNone`.
+ *  @param completion        A block object to be executed when the maximum width is set.
  */
-- (void)setPanelMaximumWidth:(CGFloat)panelMaximumWidth forSide:(MSSPSideDisplayed)side;
+- (void)setPanelMaximumWidth:(CGFloat)panelMaximumWidth forSide:(MSSPSideDisplayed)side withCompletion:(void (^)(void))completion;
 
 #pragma mark Panels information
 /** @name Panels information */
@@ -818,7 +819,18 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
  */
 - (void)setLeftPanelMaximumWidth:(CGFloat)leftPanelMaximumWidth
 {
-    [self setPanelMaximumWidth:leftPanelMaximumWidth forSide:MSSPSideDisplayedLeft];
+    [self setLeftPanelMaximumWidth:leftPanelMaximumWidth withCompletion:nil];
+}
+
+/**
+ *  Set the maximum width of the left panel with.
+ *
+ *  @param maximumWidth Panel's maximum width.
+ *  @param completion   A block object to be executed when the maximum width is set.
+ */
+- (void)setLeftPanelMaximumWidth:(CGFloat)leftPanelMaximumWidth withCompletion:(void (^)(void))completion
+{
+    [self setPanelMaximumWidth:leftPanelMaximumWidth forSide:MSSPSideDisplayedLeft withCompletion:completion];
 }
 
 /**
@@ -826,8 +838,9 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
  *
  *  @param panelMaximumWidth Panel's maximum width.
  *  @param side              The side. Must not be `MSSPSideDisplayedNone`.
+ *  @param completion        A block object to be executed when the maximum width is set.
  */
-- (void)setPanelMaximumWidth:(CGFloat)panelMaximumWidth forSide:(MSSPSideDisplayed)side
+- (void)setPanelMaximumWidth:(CGFloat)panelMaximumWidth forSide:(MSSPSideDisplayed)side withCompletion:(void (^)(void))completion;
 {
     NSParameterAssert(side != MSSPSideDisplayedNone);
     
@@ -843,7 +856,9 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
         _rightPanelMaximumWidth = panelMaximumWidth;
     
     if ([self sideDisplayed] == side)
-        [self openPanelSide:side withCompletion:nil andStatusBarColorUpdate:NO];
+        [self openPanelSide:side withCompletion:completion andStatusBarColorUpdate:NO];
+    else if (completion)
+        completion();
 }
 
 /**
@@ -853,7 +868,18 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
  */
 - (void)setRightPanelMaximumWidth:(CGFloat)rightPanelMaximumWidth
 {
-    [self setPanelMaximumWidth:rightPanelMaximumWidth forSide:MSSPSideDisplayedRight];
+    [self setRightPanelMaximumWidth:rightPanelMaximumWidth withCompletion:nil];
+}
+
+/**
+ *  Set the maximum width of the right panel with.
+ *
+ *  @param maximumWidth Panel's maximum width.
+ *  @param completion   A block object to be executed when the maximum width is set.
+ */
+- (void)setRightPanelMaximumWidth:(CGFloat)rightPanelMaximumWidth withCompletion:(void (^)(void))completion
+{
+    [self setPanelMaximumWidth:rightPanelMaximumWidth forSide:MSSPSideDisplayedRight withCompletion:completion];
 }
 
 #pragma mark Panels information
