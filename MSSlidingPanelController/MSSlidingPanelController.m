@@ -721,7 +721,9 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
     NSParameterAssert(centerViewController);
     
     if ([self isViewLoaded])
+#ifndef __clang_analyzer__
         frame = [[[self centerViewController] view] frame];
+#endif
     
     [[[self centerViewController] view] removeFromSuperview];
     [[self centerViewController] removeFromParentViewController];
@@ -733,7 +735,9 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
     
     if ([self isViewLoaded])
     {
+#ifndef __clang_analyzer__
         [[[self centerViewController] view] setFrame:frame];
+#endif
         [[[self centerViewController] view] setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
         [[self centerView] addSubview:[[self centerViewController] view]];
     }

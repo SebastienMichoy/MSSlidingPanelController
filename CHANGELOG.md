@@ -1,4 +1,7 @@
 # MSSlidingPanelController Changelog
+## 1.1.1 (Wednesday, January 29th, 2014)
+- Hide a false positive warning reported by clang analyzer.
+- Add a script to update the build number.
 ## 1.1.0 (Thursday, January 16th, 2014)
 - It's now possible to add a completion block when we change the maximum width of panels.
 ## 1.0.0 (Wednesday, January 8th, 2014)
