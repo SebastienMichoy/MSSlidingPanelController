@@ -66,7 +66,7 @@ pod 'MSSlidingPanelController'
 ```
 
 ## Documentation
-The documentation of `MSSlidingPanelController` can be found on [CocoaDoc](http://cocoadocs.org/docsets/MSSlidingPanelController/1.0.0/).
+The documentation of `MSSlidingPanelController` can be found on [CocoaDoc](http://cocoadocs.org/docsets/MSSlidingPanelController/).
 
 ## Creating a MSSlidingPanelController
 That's very easy to create a `MSSlidingPanelController`. Only write this few lines *et voila*!
@@ -85,8 +85,10 @@ slidingPanelController = [[MSSlidingPanelController alloc] initWithCenterViewCon
 																	leftPanelController:leftPanelController
 																andRightPanelController:rightPanelController];
 ```
+You can also create it by using *Storyboard*. Take a look at the examples to see how it works !
+
 ## Credit
-The library and the example are developed and designed by [Sébastien MICHOY](http://www.linkedin.com/in/sebastienmichoy).
+The library and the examples are developed and designed by [Sébastien MICHOY](http://www.linkedin.com/in/sebastienmichoy).
 
 ## Feedback
 If you find a bug, feel free to create Github issues!

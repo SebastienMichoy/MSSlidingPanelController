@@ -8,6 +8,12 @@
 
 #import "MSSlidingPanelController.h"
 
+#pragma mark - Macros
+
+#define MSSPStoryboardIDCenter  @"MSSPStoryboardIDCenter"
+#define MSSPStoryboardIDLeft    @"MSSPStoryboardIDLeft"
+#define MSSPStoryboardIDRight   @"MSSPStoryboardIDRight"
+
 #pragma mark - Global variables
 
 CGFloat     g_animationVelocity = 640;
@@ -349,6 +355,14 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
  */
 - (void)openPanelSide:(MSSPSideDisplayed)side withCompletion:(void (^)(void))completion andStatusBarColorUpdate:(BOOL)statusBarColorUpdate;
 
+#pragma mark Storyboard
+/** @name Storyboard */
+
+/**
+ *  Sets views from storyboard.
+ */
+- (void)setViewsFromStoryboard;
+
 @end
 
 #pragma mark - Implementation
@@ -433,6 +447,23 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
 - (id)init
 {
     self = [super init];
+    
+    if (self)
+        [self commonSettings];
+    
+    return (self);
+}
+
+/**
+ *  Returns an object initialized from data in a given unarchiver.
+ *
+ *  @param aDecoder An unarchiver object.
+ *
+ *  @return self, initialized using the data in decoder.
+ */
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
     
     if (self)
         [self commonSettings];
@@ -559,6 +590,9 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
     [super loadView];
     
     windowSize = [[UIScreen mainScreen] bounds].size;
+    
+    if ([self storyboard])
+        [self setViewsFromStoryboard];
     
     [self setStatusBarView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, windowSize.width, 20)]];
     [[self statusBarView] setBackgroundColor:[self centerViewStatusBarColor]];
@@ -1521,6 +1555,49 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
 - (void)openRightPanelWithCompletion:(void (^)(void))completion
 {
     [self openPanelSide:MSSPSideDisplayedRight withCompletion:completion];
+}
+
+#pragma mark Storyboard
+/** @name Storyboard */
+
+/**
+ *  Notifies the view controller that a segue is about to be performed.
+ *
+ *  @param segue  The segue object containing information about the view controllers involved in the segue.
+ *  @param sender The object that initiated the segue. You might use this parameter to perform different actions based on which control (or other object) initiated the segue.
+ */
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:MSSPStoryboardIDCenter])
+        [self setCenterViewController:[segue destinationViewController]];
+    else if ([segue.identifier isEqualToString:MSSPStoryboardIDLeft])
+        [self setLeftPanelController:[segue destinationViewController]];
+    else if ([segue.identifier isEqualToString:MSSPStoryboardIDRight])
+        [self setRightPanelController:[segue destinationViewController]];
+}
+
+/**
+ *  Sets views from storyboard.
+ */
+- (void)setViewsFromStoryboard
+{
+    @try
+    {
+        [self performSegueWithIdentifier:MSSPStoryboardIDCenter sender:nil];
+    }
+    @catch (NSException *exception){}
+    
+    @try
+    {
+        [self performSegueWithIdentifier:MSSPStoryboardIDLeft sender:nil];
+    }
+    @catch (NSException *exception){}
+    
+    @try
+    {
+        [self performSegueWithIdentifier:MSSPStoryboardIDRight sender:nil];
+    }
+    @catch (NSException *exception){}
 }
 
 @end

@@ -129,6 +129,7 @@ typedef NS_ENUM(NSUInteger, MSSPSideDisplayed)
  *  The MSSlidingPanelController provides a class which allow to display sliding panels.
  *  
  *  The sliding panel controller allows to set two panels: one on the left, and one on the right. However, only one panel can be displayed at the same time.
+ *  If you want to use the Storyboard, use custom segues with the following identifiers: MSSPStoryboardIDCenter, MSSPStoryboardIDLeft, MSSPStoryboardIDRight.
  */
 @interface MSSlidingPanelController : UIViewController
 

@@ -102,18 +102,18 @@
 			isa = PBXGroup;
 			children = (
 				01C4F2741879D0F100CA9A41 /* Sources */,
-				01C4F24B1879CF9D00CA9A41 /* Ressources */,
+				01C4F24B1879CF9D00CA9A41 /* Resources */,
 			);
 			path = SlidingPanelController;
 			sourceTree = "<group>";
 		};
-		01C4F24B1879CF9D00CA9A41 /* Ressources */ = {
+		01C4F24B1879CF9D00CA9A41 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				01C4F2561879CF9D00CA9A41 /* Images.xcassets */,
 				01C4F2731879CFFB00CA9A41 /* Others */,
 			);
-			name = Ressources;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		01C4F2731879CFFB00CA9A41 /* Others */ = {
