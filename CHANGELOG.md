@@ -1,4 +1,6 @@
 # MSSlidingPanelController Changelog
+## 1.2.0 (Saturday, March 1st, 2014)
+- Update the version number to follow the [semantic versioning](http://semver.org)
 ## 1.1.2 (Friday, February 28th, 2014)
 - It is now possible to use **MSSlidingPanelController** with *Storyboard*.
 - A new example using *Storyboard* has been added.
