@@ -1025,6 +1025,22 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
 }
 
 /**
+ *  Asks the delegate if two gesture recognizers should be allowed to recognize gestures simultaneously.
+ *
+ *  @param gestureRecognizer      An instance of a subclass of the abstract base class UIGestureRecognizer. This is the object sending the message to the delegate.
+ *  @param otherGestureRecognizer An instance of a subclass of the abstract base class UIGestureRecognizer.
+ *
+ *  @return YES to allow both gestureRecognizer and otherGestureRecognizer to recognize their gestures simultaneously. The default implementation returns NO—no two gestures can be recognized simultaneously.
+ */
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    if ([[self delegate] respondsToSelector:@selector(slidingPanelController:gestureRecognizer:shouldRecognizeSimultaneouslyWithGestureRecognizer:)])
+        return ([[self delegate] slidingPanelController:self gestureRecognizer:gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:otherGestureRecognizer]);
+    
+    return (NO);
+}
+
+/**
  *  Return the list of the possible closing gestures recognized.
  *
  *  @param gestureRecognizer The gesture recognizer.

@@ -400,4 +400,16 @@ typedef NS_ENUM(NSUInteger, MSSPSideDisplayed)
  */
 - (void)slidingPanelController:(MSSlidingPanelController *)panelController hasOpenedSide:(MSSPSideDisplayed)side;
 
+/**
+ *  Asks the delegate if two gesture recognizers should be allowed to recognize gestures simultaneously.
+ *  WARNING : Be careful with this method. Some behaviors can be unexpected.
+ *
+ *  @param panelController        The panel controller.
+ *  @param gestureRecognizer      An instance of a subclass of the abstract base class UIGestureRecognizer. This is gesture recognizer of the panel controller.
+ *  @param otherGestureRecognizer An instance of a subclass of the abstract base class UIGestureRecognizer.
+ *
+ *  @return YES to allow both gestureRecognizer and otherGestureRecognizer to recognize their gestures simultaneously. The default implementation returns NO—no two gestures can be recognized simultaneously.
+ */
+- (BOOL)slidingPanelController:(MSSlidingPanelController *)panelController gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer;
+
 @end

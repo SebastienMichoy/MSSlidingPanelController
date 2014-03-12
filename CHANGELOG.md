@@ -1,4 +1,6 @@
 # MSSlidingPanelController Changelog
+## 1.3.0 (Wednesday, March 12th, 2014)
+- Adds a new method in the @protocol which allows to work with multiple gesture recognizer.
 ## 1.2.0 (Saturday, March 1st, 2014)
 - Update the version number to follow the [semantic versioning](http://semver.org)
 ## 1.1.2 (Friday, February 28th, 2014)
