@@ -5,3 +5,4 @@ install:
   - cd Examples
 script:
   - xctool -project SlidingPanelController.xcodeproj -scheme 'SlidingPanelController' -configuration Release -sdk iphonesimulator -arch i386 build
+  - xctool -project SlidingPanelControllerStoryboard.xcodeproj -scheme 'SlidingPanelControllerStoryboard' -configuration Release -sdk iphonesimulator -arch i386 build

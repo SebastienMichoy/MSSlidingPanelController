@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/SebastienMichoy/MSSlidingPanelController.png?branch=master)](https://travis-ci.org/SebastienMichoy/MSSlidingPanelController)
-
-# MSSlidingPanelController
+# MSSlidingPanelController [![Build Status](https://travis-ci.org/SebastienMichoy/MSSlidingPanelController.png?branch=master)](https://travis-ci.org/SebastienMichoy/MSSlidingPanelController)
 The `MSSlidingPanelController` is a library which allows to **easily integrate** in your **iOS 7** project a **sliding panel controller** mechanism.
 
 <p align="center" >
@@ -87,7 +85,7 @@ slidingPanelController = [[MSSlidingPanelController alloc] initWithCenterViewCon
 																	leftPanelController:leftPanelController
 																andRightPanelController:rightPanelController];
 ```
-You can also create it by using *Storyboard*. Take a look at the examples to see how it works !
+You can also create it by using *Storyboard*. Take a look at the examples to see how it works!
 
 ## Credit
 The library and the examples are developed and designed by [Sébastien MICHOY](http://www.linkedin.com/in/sebastienmichoy).
