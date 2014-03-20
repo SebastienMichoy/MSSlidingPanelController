@@ -1,5 +1,5 @@
 # MSSlidingPanelController Changelog
-## [1.3.0](https://github.com/SebastienMichoy/MSSlidingPanelController/releases/tag/1.3.0) (Wednesday, March 20th, 2014)
+## [1.3.0](https://github.com/SebastienMichoy/MSSlidingPanelController/releases/tag/1.3.0) (Thursday, March 20th, 2014)
 ### New
 - Travis-CI support is there. Thanks to Jens Kohl ([@jk](https://github.com/jk)) for his contribution.
 - Adds a new method in the @protocol which allows to work with multiple gesture recognizers (issue [#01](https://github.com/SebastienMichoy/MSSlidingPanelController/issues/1)).
