@@ -452,12 +452,12 @@ NSString    *g_RPVCCellIdentifier = @"CellIdentifier";
 {
     TableViewSection    *section;
     
-    if ([indexPath section] >= [[self sections] count])
+    if ((NSUInteger)[indexPath section] >= [[self sections] count])
         return (nil);
     
     section = [[self sections] objectAtIndex:[indexPath section]];
     
-    if ([indexPath row] >= [section numberOfItems])
+    if ((NSUInteger)[indexPath row] >= [section numberOfItems])
         return nil;
     
     return ([section itemAtIndex:[indexPath row]]);
@@ -472,7 +472,7 @@ NSString    *g_RPVCCellIdentifier = @"CellIdentifier";
  */
 - (TableViewSection *)sectionAtIndex:(NSInteger)index
 {
-    if (index >= [[self sections] count])
+    if ((NSUInteger)index >= [[self sections] count])
         return (nil);
     
     return ([[self sections] objectAtIndex:index]);
@@ -488,7 +488,7 @@ NSString    *g_RPVCCellIdentifier = @"CellIdentifier";
  *
  *  @return The number of values.
  */
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)__unused tableView
 {
     return ([[self sections] count]);
 }
@@ -537,7 +537,7 @@ NSString    *g_RPVCCellIdentifier = @"CellIdentifier";
  *
  *  @return The number of rows.
  */
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)__unused tableView numberOfRowsInSection:(NSInteger)section
 {
     return ([[self sectionAtIndex:section] numberOfItems]);
 }
@@ -550,7 +550,7 @@ NSString    *g_RPVCCellIdentifier = @"CellIdentifier";
  *
  *  @return The title.
  */
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (NSString *)tableView:(UITableView *)__unused tableView titleForHeaderInSection:(NSInteger)section
 {
     return ([[self sectionAtIndex:section] name]);
 }

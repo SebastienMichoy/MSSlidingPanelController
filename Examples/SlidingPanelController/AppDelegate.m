@@ -47,7 +47,7 @@
  *
  *  @return NO if the app cannot handle the URL resource, otherwise return YES. The return value is ignored if the app is launched as a result of a remote notification.
  */
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (BOOL)application:(UIApplication *)__unused application didFinishLaunchingWithOptions:(NSDictionary *)__unused launchOptions
 {
     CenterViewController        *centerViewController;
     LeftPanelViewController     *leftPanelViewController;

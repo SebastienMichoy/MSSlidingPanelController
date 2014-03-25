@@ -1,4 +1,9 @@
 # MSSlidingPanelController Changelog
+## [1.3.1.](https://github.com/SebastienMichoy/MSSlidingPanelController/releases/tag/1.3.1) (Tuesday, March 25th, 2014)
+### Fixed
+- **FIXED** warnings which can appear with *-Wall* *-Wextra* flags.
+- **FIXED** warnings which occurred when it misses a newline at end of files (issue [#04](https://github.com/SebastienMichoy/MSSlidingPanelController/issues/4)).
+
 ## [1.3.0](https://github.com/SebastienMichoy/MSSlidingPanelController/releases/tag/1.3.0) (Thursday, March 20th, 2014)
 ### New
 - Travis-CI support is there. Thanks to Jens Kohl ([@jk](https://github.com/jk)) for his contribution.

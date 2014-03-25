@@ -109,7 +109,7 @@
 #pragma mark Copy
 /** @name Copy */
 
-- (id)copyWithZone:(NSZone *)zone
+- (id)copyWithZone:(NSZone *)__unused zone
 {
     TableViewItem   *item;
     

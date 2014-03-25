@@ -897,7 +897,7 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
  *  @param side              The side. Must not be `MSSPSideDisplayedNone`.
  *  @param completion        A block object to be executed when the maximum width is set.
  */
-- (void)setPanelMaximumWidth:(CGFloat)panelMaximumWidth forSide:(MSSPSideDisplayed)side withCompletion:(void (^)(void))completion;
+- (void)setPanelMaximumWidth:(CGFloat)panelMaximumWidth forSide:(MSSPSideDisplayed)side withCompletion:(void (^)(void))completion
 {
     NSParameterAssert(side != MSSPSideDisplayedNone);
     
@@ -1308,7 +1308,7 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
  *
  *  @param tapGestureRecognizer The gesture recognizer.
  */
-- (void)tapGestureRecognized:(UITapGestureRecognizer *)tapGestureRecognizer
+- (void)tapGestureRecognized:(UITapGestureRecognizer *)__unused tapGestureRecognizer
 {
     [self closePanel];
 }
@@ -1601,7 +1601,7 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
  *  @param segue  The segue object containing information about the view controllers involved in the segue.
  *  @param sender The object that initiated the segue. You might use this parameter to perform different actions based on which control (or other object) initiated the segue.
  */
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)__unused sender
 {
     if ([segue.identifier isEqualToString:MSSPStoryboardIDCenter])
         [self setCenterViewController:[segue destinationViewController]];

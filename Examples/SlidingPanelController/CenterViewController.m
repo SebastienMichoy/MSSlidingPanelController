@@ -136,7 +136,7 @@ NSString    *g_CVCCellIdentifier = @"CellIdentifier";
 
 @implementation CenterViewController
 
-#pragma Initialization
+#pragma mark Initialization
 /** @name Initialization */
 
 /**
@@ -397,12 +397,12 @@ NSString    *g_CVCCellIdentifier = @"CellIdentifier";
 {
     TableViewSection    *section;
     
-    if ([indexPath section] >= [[self sections] count])
+    if ((NSUInteger)[indexPath section] >= [[self sections] count])
         return (nil);
     
     section = [[self sections] objectAtIndex:[indexPath section]];
     
-    if ([indexPath row] >= [section numberOfItems])
+    if ((NSUInteger)[indexPath row] >= [section numberOfItems])
         return nil;
     
     return ([section itemAtIndex:[indexPath row]]);
@@ -417,7 +417,7 @@ NSString    *g_CVCCellIdentifier = @"CellIdentifier";
  */
 - (TableViewSection *)sectionAtIndex:(NSInteger)index
 {
-    if (index >= [[self sections] count])
+    if ((NSUInteger)index >= [[self sections] count])
         return (nil);
     
     return ([[self sections] objectAtIndex:index]);
@@ -433,7 +433,7 @@ NSString    *g_CVCCellIdentifier = @"CellIdentifier";
  *
  *  @return The number of values.
  */
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)__unused tableView
 {
     return ([[self sections] count]);
 }
@@ -477,7 +477,7 @@ NSString    *g_CVCCellIdentifier = @"CellIdentifier";
  *
  *  @return The number of rows.
  */
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)__unused tableView numberOfRowsInSection:(NSInteger)section
 {
     return ([[self sectionAtIndex:section] numberOfItems]);
 }
@@ -490,7 +490,7 @@ NSString    *g_CVCCellIdentifier = @"CellIdentifier";
  *
  *  @return The title.
  */
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (NSString *)tableView:(UITableView *)__unused tableView titleForHeaderInSection:(NSInteger)section
 {
     return ([[self sectionAtIndex:section] name]);
 }
@@ -505,7 +505,7 @@ NSString    *g_CVCCellIdentifier = @"CellIdentifier";
  *  @param view      The section view.
  *  @param section   The section number.
  */
-- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+- (void)tableView:(UITableView *)__unused tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)__unused section
 {
     [[(UITableViewHeaderFooterView *)view contentView] setBackgroundColor:[UIColor centerTableViewSectionBackgroundColor]];
 }
@@ -556,7 +556,7 @@ NSString    *g_CVCCellIdentifier = @"CellIdentifier";
  *  @param panelController The panel controller.
  *  @param side            The side.
  */
-- (void)slidingPanelController:(MSSlidingPanelController *)panelController beginsToBringOutSide:(MSSPSideDisplayed)side
+- (void)slidingPanelController:(MSSlidingPanelController *)__unused panelController beginsToBringOutSide:(MSSPSideDisplayed)__unused side
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
@@ -567,7 +567,7 @@ NSString    *g_CVCCellIdentifier = @"CellIdentifier";
  *  @param panelController The panel controller.
  *  @param side            The side.
  */
-- (void)slidingPanelController:(MSSlidingPanelController *)panelController hasClosedSide:(MSSPSideDisplayed)side
+- (void)slidingPanelController:(MSSlidingPanelController *)__unused panelController hasClosedSide:(MSSPSideDisplayed)side
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
@@ -583,7 +583,7 @@ NSString    *g_CVCCellIdentifier = @"CellIdentifier";
  *  @param panelController The panel controller.
  *  @param side            The side.
  */
-- (void)slidingPanelController:(MSSlidingPanelController *)panelController hasOpenedSide:(MSSPSideDisplayed)side
+- (void)slidingPanelController:(MSSlidingPanelController *)__unused panelController hasOpenedSide:(MSSPSideDisplayed)side
 {
     if (side == MSSPSideDisplayedLeft)
         [[self menuButtonLeft] setAction:@selector(closePanel)];
