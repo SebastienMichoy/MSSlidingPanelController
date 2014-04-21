@@ -1,10 +1,11 @@
 # MSSlidingPanelController Changelog
-## [1.3.2.](https://github.com/SebastienMichoy/MSSlidingPanelController/releases/tag/1.3.2) (Monday, April 21th, 2014)
+## [1.3.2.](https://github.com/SebastienMichoy/MSSlidingPanelController/releases/tag/1.3.2) (Tuesday, April 22nd, 2014)
 ### New
 - Examples are now compiled with *-Wall* *-Wextra* flags.
 
 ### Fixed
 - **FIXED** a glitch when the sliding panel was inside a UITabBarController and contained a UINavigationController. Bug discovered thanks to [@nemesyssoft](https://github.com/nemesyssoft)'s question (issue [#8](https://github.com/SebastienMichoy/MSSlidingPanelController/issues/8)).
+
 ## [1.3.1.](https://github.com/SebastienMichoy/MSSlidingPanelController/releases/tag/1.3.1) (Tuesday, March 25th, 2014)
 ### Fixed
 - **FIXED** warnings which can appear with *-Wall* *-Wextra* flags.
