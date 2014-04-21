@@ -604,6 +604,7 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
  */
 - (void)loadView
 {
+    CGRect  centerViewFrame;
     CGSize  windowSize;
     
     [super loadView];
@@ -623,6 +624,15 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
     [[[self centerViewController] view] setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
     [[self centerView] addSubview:[[self centerViewController] view]];
     [[self centerView] setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
+    
+    if ([[self parentViewController] isKindOfClass:[UITabBarController class]] &&
+        [[self centerViewController] isKindOfClass:[UINavigationController class]] &&
+        ![[(UITabBarController *)[self parentViewController] tabBar] isTranslucent])
+    {
+        centerViewFrame = [[[self centerViewController] view] frame];
+        centerViewFrame.size.height += [[(UITabBarController *)[self parentViewController] tabBar] frame].size.height;
+        [[[self centerViewController] view] setFrame:centerViewFrame];
+    }
     
     [self setView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, windowSize.width, windowSize.height)]];
     [[self view] addSubview:[self centerView]];
@@ -1331,6 +1341,9 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
  */
 - (void)loadPanelForSide:(MSSPSideDisplayed)side
 {
+    UIViewController    *controller;
+    CGRect              frame;
+    
     if (side == MSSPSideDisplayedNone)
         return ;
     
@@ -1353,6 +1366,15 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
     
     [[self view] addSubview:[[self panelControllerForSide:side] view]];
     [[self view] sendSubviewToBack:[[self panelControllerForSide:side] view]];
+    
+    if ([[self parentViewController] isKindOfClass:[UITabBarController class]] &&
+        [controller isKindOfClass:[UINavigationController class]] &&
+        ![[(UITabBarController *)[self parentViewController] tabBar] isTranslucent])
+    {
+        frame = [[controller view] frame];
+        frame.size.height += [[(UITabBarController *)[self parentViewController] tabBar] frame].size.height;
+        [[controller view] setFrame:frame];
+    }
     
     [self setSideDisplayed:side];
 }

@@ -1,4 +1,10 @@
 # MSSlidingPanelController Changelog
+## [1.3.2.](https://github.com/SebastienMichoy/MSSlidingPanelController/releases/tag/1.3.2) (Monday, April 21th, 2014)
+### New
+- Examples are now compiled with *-Wall* *-Wextra* flags.
+
+### Fixed
+- **FIXED** a glitch when the sliding panel was inside a UITabBarController and contained a UINavigationController. Bug discovered thanks to [@nemesyssoft](https://github.com/nemesyssoft)'s question (issue [#8](https://github.com/SebastienMichoy/MSSlidingPanelController/issues/8)).
 ## [1.3.1.](https://github.com/SebastienMichoy/MSSlidingPanelController/releases/tag/1.3.1) (Tuesday, March 25th, 2014)
 ### Fixed
 - **FIXED** warnings which can appear with *-Wall* *-Wextra* flags.
@@ -7,7 +13,7 @@
 ## [1.3.0](https://github.com/SebastienMichoy/MSSlidingPanelController/releases/tag/1.3.0) (Thursday, March 20th, 2014)
 ### New
 - Travis-CI support is there. Thanks to Jens Kohl ([@jk](https://github.com/jk)) for his contribution.
-- Adds a new method in the @protocol which allows to work with multiple gesture recognizers (issue [#01](https://github.com/SebastienMichoy/MSSlidingPanelController/issues/1)).
+- Adds a new method in the @protocol which allows to work with multiple gesture recognizers (issue [#1](https://github.com/SebastienMichoy/MSSlidingPanelController/issues/1)).
 - Adds BSD license in every files' header.
 
 ### Comment
