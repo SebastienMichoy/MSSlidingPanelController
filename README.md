@@ -5,6 +5,10 @@ The `MSSlidingPanelController` is a library which allows to **easily integrate**
 <img src="http://sebastienmichoy.github.io/MSSlidingPanelController/images/MSSlidingPanelController.png" />
 </p>
 
+## Requirements
+- iOS 7.0+
+- ARC
+
 ## Features
 ### MSSlidingPanelController
 Either for the left and right panel, it is possible to set:
@@ -66,7 +70,7 @@ pod 'MSSlidingPanelController'
 ```
 
 ## Documentation
-The documentation of `MSSlidingPanelController` can be found on [CocoaDoc](http://cocoadocs.org/docsets/MSSlidingPanelController/).
+The documentation of `MSSlidingPanelController` can be found on [CocoaDocs](http://cocoadocs.org/docsets/MSSlidingPanelController/).
 
 ## Creating a MSSlidingPanelController
 That's very easy to create a `MSSlidingPanelController`. Only write this few lines *et voila*!

@@ -1,10 +1,17 @@
 # MSSlidingPanelController Changelog
+## [1.3.3.](https://github.com/SebastienMichoy/MSSlidingPanelController/releases/tag/1.3.3) (Sunday, July 13th, 2014)
+### New
+- **ADDED** a remark in documentation about the usage of MSSlidingPanelController in others containers.
+
+### Removed
+- **REMOVED** the fix appeared with release [1.3.2.](https://github.com/SebastienMichoy/MSSlidingPanelController/releases/tag/1.3.2). This one didn't work correctly in some cases. It is now advised to adjust your controller in function of your need.
+
 ## [1.3.2.](https://github.com/SebastienMichoy/MSSlidingPanelController/releases/tag/1.3.2) (Tuesday, April 22nd, 2014)
 ### New
 - Examples are now compiled with *-Wall* *-Wextra* flags.
 
 ### Fixed
-- **FIXED** a glitch when the sliding panel was inside a UITabBarController and contained a UINavigationController. Bug discovered thanks to [@nemesyssoft](https://github.com/nemesyssoft)'s question (issue [#8](https://github.com/SebastienMichoy/MSSlidingPanelController/issues/8)).
+- **FIXED** a glitch when the sliding panel was inside a `UITabBarController` and contained a `UINavigationController`. Bug discovered thanks to [@nemesyssoft](https://github.com/nemesyssoft)'s question (issue [#8](https://github.com/SebastienMichoy/MSSlidingPanelController/issues/8)).
 
 ## [1.3.1.](https://github.com/SebastienMichoy/MSSlidingPanelController/releases/tag/1.3.1) (Tuesday, March 25th, 2014)
 ### Fixed
@@ -14,7 +21,7 @@
 ## [1.3.0](https://github.com/SebastienMichoy/MSSlidingPanelController/releases/tag/1.3.0) (Thursday, March 20th, 2014)
 ### New
 - Travis-CI support is there. Thanks to Jens Kohl ([@jk](https://github.com/jk)) for his contribution.
-- Adds a new method in the @protocol which allows to work with multiple gesture recognizers (issue [#1](https://github.com/SebastienMichoy/MSSlidingPanelController/issues/1)).
+- **ADDED** a new method in the @protocol which allows to work with multiple gesture recognizers (issue [#1](https://github.com/SebastienMichoy/MSSlidingPanelController/issues/1)).
 - Adds BSD license in every files' header.
 
 ### Comment
@@ -30,7 +37,7 @@
 
 ## [1.1.1](https://github.com/SebastienMichoy/MSSlidingPanelController/releases/tag/1.1.1) (Wednesday, January 29th, 2014)
 ### New
-- Add a script to update the build number of the exemple.
+- **ADDED** a script to update the build number of exemples.
 
 ### Fixed
 - **FIXED** a false positive warning reported by clang analyzer.
