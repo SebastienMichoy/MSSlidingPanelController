@@ -95,7 +95,7 @@ You can also create it by using *Storyboard*. Take a look at the examples to see
 The library and the examples are developed and designed by [Sébastien MICHOY](http://www.linkedin.com/in/sebastienmichoy).
 
 ## Feedback
-If you find a bug, feel free to create Github issues!
+If you find a bug, feel free to create a Github issue!
 
 ## License
 `MSSlidingPanelController` is available under the BSD license. Please see the LICENSE file for more information.

@@ -1247,8 +1247,8 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
         newCenterViewFrame->origin.x = 0;
     
     if ([[self centerView] frame].origin.x <= 0 && newCenterViewFrame->origin.x > 0)
-    {
-        if ([[self delegate] respondsToSelector:@selector(slidingPanelController:hasClosedSide:)])
+    {   
+        if ([self sideDisplayed] != MSSPSideDisplayedNone && [[self delegate] respondsToSelector:@selector(slidingPanelController:hasClosedSide:)])
             [[self delegate] slidingPanelController:self hasClosedSide:[self sideDisplayed]];
         
         if (!([self leftPanelOpenGestureMode] & [self panTouchLocation]))
@@ -1263,7 +1263,7 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
     }
     else if ([[self centerView] frame].origin.x >= 0 && newCenterViewFrame->origin.x < 0)
     {
-        if ([[self delegate] respondsToSelector:@selector(slidingPanelController:hasClosedSide:)])
+        if ([self sideDisplayed] != MSSPSideDisplayedNone && [[self delegate] respondsToSelector:@selector(slidingPanelController:hasClosedSide:)])
             [[self delegate] slidingPanelController:self hasClosedSide:[self sideDisplayed]];
         
         if (!([self rightPanelOpenGestureMode] & [self panTouchLocation]))
