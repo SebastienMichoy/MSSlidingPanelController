@@ -616,6 +616,7 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
     [self setStatusBarView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, windowSize.width, 20)]];
     [[self statusBarView] setBackgroundColor:[self centerViewStatusBarColor]];
     [[self statusBarView] setAutoresizingMask:(UIViewAutoresizingFlexibleWidth)];
+    [self statusBarView].userInteractionEnabled = NO;
     
     [self setCenterView:[[MSSlidingPanelCenterView alloc] initWithFrame:CGRectMake(0, 0, windowSize.width, windowSize.height)]];
     [[self centerView] setSlidingPanelController:self];
