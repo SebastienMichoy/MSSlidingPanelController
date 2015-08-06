@@ -14,5 +14,5 @@ Pod::Spec.new do |spec|
   spec.homepage     			= "https://github.com/SebastienMichoy/MSSlidingPanelController"
   spec.author       			= { "Sébastien MICHOY" => "sebastienmichoy@gmail.com" }
   spec.license      			= { :type => "BSD", :file => "LICENSE" }
-  spec.screenshots  			= "http://sebastienmichoy.github.io/MSSlidingPanelController/images/MSSlidingPanelController.png"
+  spec.screenshots  			= "https://raw.githubusercontent.com/SebastienMichoy/MSSlidingPanelController/assets/MSSlidingPanelController.png"
 end
