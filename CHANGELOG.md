@@ -1,4 +1,9 @@
 # MSSlidingPanelController Changelog
+## [1.3.6](https://github.com/SebastienMichoy/MSSlidingPanelController/releases/tag/1.3.6) (Thursday, August 6th, 2015)
+### Modify
+- License headers and license file updated.
+- The status bar is not user interactive anymore. Thanks to [@IvanThomasFr](https://github.com/IvanThomasFr) for his contribution.
+
 ## [1.3.5](https://github.com/SebastienMichoy/MSSlidingPanelController/releases/tag/1.3.5) (Sunday, February 8th, 2015)
 ### Modify
 - The README image is loaded from a new location (branch `assets`).
