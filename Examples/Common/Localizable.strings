@@ -47,8 +47,45 @@
 "center_view_section_open_close_title" = "open & close panels";
 "center_view_section_reset_views_title" = "reset views";
 
+// Panel View
+
+"panel_view_section_panel_width_title" = "panel width";
+"panel_view_section_animation_title" = "animation";
+"panel_view_section_status_bar_title" = "status bar";
+"panel_view_section_opening_gestures_title" = "opening gestures";
+"panel_view_section_closing_gestures_title" = "closing gestures";
+"panel_view_section_center_view_interaction_title" = "center view interaction";
+"panel_view_section_actions_title" = "actions";
+"panel_view_section_reset_views_title" = "reset views";
+
+"panel_view_section_panel_width_100" = "100%";
+"panel_view_section_panel_width_75" = "75%";
+"panel_view_section_panel_width_50" = "50%";
+"panel_view_section_panel_width_25" = "25%";
+
+"panel_view_section_animation_center_sliding" = "center sliding";
+"panel_view_section_animation_panel_sliding" = "panel sliding";
+"panel_view_section_animation_None" = "none";
+
+"panel_view_section_status_bar_abruptly" = "change color abruptly";
+"panel_view_section_status_bar_smoothly" = "change color smoothly";
+
+"panel_view_section_opening_gestures_dragging_nav_bar" = "dragging nav bar";
+"panel_view_section_opening_gestures_dragging_content" = "dragging content";
+
+"panel_view_section_closing_gestures_dragging_nav_bar" = "dragging nav bar";
+"panel_view_section_closing_gestures_dragging_content" = "dragging content";
+"panel_view_section_closing_gestures_tap_nav_bar" = "tap nav bar";
+"panel_view_section_closing_gestures_tap_content" = "tap content";
+
+"panel_view_section_center_view_interaction_entire_view" = "entire view";
+"panel_view_section_center_view_interaction_nav_bar_only" = "nav bar only";
+"panel_view_section_center_view_interaction_none" = "none";
+
 // App Info & Copyright
 
+"app_info_objc_programmatically" = "SlidingPanel - Objective-C - Programmatically";
+"app_info_objc_storyboard" = "SlidingPanel - Objective-C - Storyboard";
 "app_info_swift_programmatically" = "SlidingPanel - Swift - Programmatically";
 "app_info_swift_storyboard" = "SlidingPanel - Swift - Storyboard";
 

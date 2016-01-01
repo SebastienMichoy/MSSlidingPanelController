@@ -36,7 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = UINavigationController(rootViewController: CenterViewController())
+//        self.window?.rootViewController = UINavigationController(rootViewController: CenterViewController())
+        self.window?.rootViewController = PanelViewController()
         self.window?.makeKeyAndVisible()
         
         return true
