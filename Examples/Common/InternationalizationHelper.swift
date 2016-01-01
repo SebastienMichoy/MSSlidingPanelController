@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  InternationalizationHelper.swift
 //
 //  Copyright © 2016-present Sébastien MICHOY and contributors.
 //
@@ -27,16 +27,8 @@
 //  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 //  POSSIBILITY OF SUCH DAMAGE.
 
-import UIKit
+import Foundation
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-}
-
-extension AppDelegate {
-    internal class var appInfoKey: String {
-        return "app_info_swift_storyboard"
-    }
+public func NSLocalizedString(key: String) -> String {
+    return NSLocalizedString(key, comment: "")
 }

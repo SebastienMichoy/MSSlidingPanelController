@@ -1,6 +1,8 @@
 //
 //  AppDelegate.swift
 //
+//  Copyright © 2016-present Sébastien MICHOY and contributors.
+//
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
 //
@@ -34,10 +36,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = UIViewController()
+        self.window?.rootViewController = UINavigationController(rootViewController: CenterViewController())
         self.window?.makeKeyAndVisible()
         
         return true
     }
 }
 
+extension AppDelegate {
+    internal class var appInfoKey: String {
+        return "app_info_swift_programmatically"
+    }
+}

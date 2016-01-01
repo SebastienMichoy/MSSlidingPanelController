@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  Localizable.strings
 //
 //  Copyright © 2016-present Sébastien MICHOY and contributors.
 //
@@ -27,16 +27,29 @@
 //  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 //  POSSIBILITY OF SUCH DAMAGE.
 
-import UIKit
+// Common
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+"common_sliding_panel" = "Sliding Panel";
 
-    var window: UIWindow?
-}
+"common_open" = "open";
+"common_close" = "close";
 
-extension AppDelegate {
-    internal class var appInfoKey: String {
-        return "app_info_swift_storyboard"
-    }
-}
+"common_bottom_panel" = "bottom panel";
+"common_center_view" = "center view";
+"common_left_panel" = "left panel";
+"common_right_panel" = "right panel";
+"common_top_panel" = "top panel";
+
+"common_panel_action" = "%1$@ %2$@";
+
+// Center View
+
+"center_view_section_open_close_title" = "open & close panels";
+"center_view_section_reset_views_title" = "reset views";
+
+// App Info & Copyright
+
+"app_info_swift_programmatically" = "SlidingPanel - Swift - Programmatically";
+"app_info_swift_storyboard" = "SlidingPanel - Swift - Storyboard";
+
+"copyright" = "Sébastien MICHOY © 2016-present";
