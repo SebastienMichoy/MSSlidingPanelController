@@ -31,7 +31,7 @@ import UIKit
 
 class CenterViewController: UIViewController {
     
-    // MARK: Type alias
+    // MARK: Type Alias
     
     private typealias Item = (title: String, tappedClosure: ItemTappedClosure?)
     private typealias ItemTappedClosure = (Void) -> Void

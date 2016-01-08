@@ -31,7 +31,7 @@ import UIKit
 
 class PanelViewController: UIViewController {
 
-    // MARK: Type alias
+    // MARK: Type Alias
     
     private typealias Item = (title: String, checkmarked: Bool, tappedClosure: ItemTappedClosure?)
     private typealias ItemTappedClosure = (Void) -> Void
@@ -308,4 +308,3 @@ extension PanelViewController: UITableViewDelegate {
         return headerView
     }
 }
-

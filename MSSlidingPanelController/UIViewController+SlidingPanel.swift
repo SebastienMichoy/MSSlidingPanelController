@@ -1,5 +1,5 @@
 //
-//  InternationalizationHelper.swift
+//  UIViewController+SlidingPanel.swift
 //
 //  Copyright © 2016-present Sébastien MICHOY and contributors.
 //
@@ -27,8 +27,24 @@
 //  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 //  POSSIBILITY OF SUCH DAMAGE.
 
-import Foundation
+import UIKit
 
-public func NSLocalizedString(key: String) -> String {
-    return NSLocalizedString(key, comment: "")
+public extension UIViewController {
+    
+    // MARK: Sliding Panel Controller
+    
+    /**
+    The nearest ancestor in the view controller hierarchy that is a sliding panel controller (read-only).
+    */
+    var slidingPanelController: SlidingPanelController? {
+        if let slidingPanelController = self as? SlidingPanelController {
+            return slidingPanelController
+        }
+        
+        if let slidingPanelController = self.parentViewController?.slidingPanelController {
+            return slidingPanelController
+        }
+        
+        return nil
+    }
 }

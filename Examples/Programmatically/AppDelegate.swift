@@ -35,9 +35,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        let centerViewController: UIViewController = UINavigationController(rootViewController: CenterViewController())
+        
+        let leftViewController = PanelViewController()
+        let rightViewController = PanelViewController()
+        let topViewController = PanelViewController()
+        let bottomViewController = PanelViewController()
+        
+        let slidingPanelController = SlidingPanelController(centerViewController: centerViewController, leftViewController: leftViewController, rightViewController: rightViewController, topViewController: topViewController, bottomViewController: bottomViewController)
+        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-//        self.window?.rootViewController = UINavigationController(rootViewController: CenterViewController())
-        self.window?.rootViewController = PanelViewController()
+        self.window?.rootViewController = slidingPanelController
         self.window?.makeKeyAndVisible()
         
         return true
