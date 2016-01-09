@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="90x-9R-L0j">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="3dx-3B-JhX">
+            <objects>
+                <viewController id="2ms-Z0-qcK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aPu-0M-2hQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="zPS-zr-e1q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jmC-Fi-l04">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AjA-yn-8yr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1453" y="537"/>
+        </scene>
+        <!--Sliding Panel Controller-->
+        <scene sceneID="jae-IL-2s9">
+            <objects>
+                <viewController id="90x-9R-L0j" customClass="SlidingPanelController" customModule="UnitTests" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bn0-wt-XE8"/>
+                        <viewControllerLayoutGuide type="bottom" id="w4S-D3-vVZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="H1i-2n-Mro">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8WH-7L-zKP">
+                                <rect key="frame" x="0.0" y="550" width="600" height="605"/>
+                                <connections>
+                                    <segue destination="2ms-Z0-qcK" kind="embed" identifier="SPCSegueBottomVCId" id="AYF-kt-Vl8"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dae-Zo-ksU">
+                                <rect key="frame" x="0.0" y="-550" width="600" height="600"/>
+                                <connections>
+                                    <segue destination="2ms-Z0-qcK" kind="embed" identifier="SPCSegueTopVCId" id="JzL-QB-UzR"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R76-tA-qa6">
+                                <rect key="frame" x="-550" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <segue destination="2ms-Z0-qcK" kind="embed" identifier="SPCSegueLeftVCId" id="tHj-il-sAy"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4vX-zO-qi9">
+                                <rect key="frame" x="550" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <segue destination="2ms-Z0-qcK" kind="embed" identifier="SPCSegueRightVCId" id="7jH-HR-vq5"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jpw-p7-Com">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <segue destination="aMC-29-Dwh" kind="embed" identifier="SPCSegueCenterVCId" id="3ZC-nx-wBp"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="_bottomContainerView" destination="8WH-7L-zKP" id="6ed-jY-GFf"/>
+                        <outlet property="_centerContainerView" destination="jpw-p7-Com" id="Aa2-zp-C5E"/>
+                        <outlet property="_leftContainerView" destination="R76-tA-qa6" id="QYb-Pq-ECr"/>
+                        <outlet property="_rightContainerView" destination="4vX-zO-qi9" id="rps-gY-zKX"/>
+                        <outlet property="_topContainerView" destination="Dae-Zo-ksU" id="dje-aO-yT4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h5m-la-upS" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="565" y="537"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mWJ-3D-cXU">
+            <objects>
+                <viewController id="aMC-29-Dwh" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OKh-OR-KQV"/>
+                        <viewControllerLayoutGuide type="bottom" id="beQ-Gs-ZrG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WCn-9v-aXv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tj8-9A-ugJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="565" y="1312"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="7jH-HR-vq5"/>
+    </inferredMetricsTieBreakers>
+</document>
