@@ -58,6 +58,36 @@ public final class SlidingPanelController: UIViewController {
         case Top = "SPCSegueTopVCId"
     }
     
+    // MARK: Sides
+    
+    /**
+    Represents a panel side.
+    
+    - Bottom: The bottom side.
+    - Left:   The left side.
+    - Right:  The right side.
+    - Top:    The top side.
+    */
+    public enum Side {
+        case Bottom
+        case Left
+        case Right
+        case Top
+    }
+    
+    // MARK: Panel Position in the View Hierarchy
+    
+    /**
+    Represents the position of the panel into the view hierarchy compared to the center view.
+    
+    - AboveCenterView: The panel have to be placed above the center view.
+    - BelowCenterView: The panel have to be placed below the center view.
+    */
+    public enum PanelPositionViewHierarchy {
+        case AboveCenterView
+        case BelowCenterView
+    }
+    
     // MARK: Designated Initializers
     
     /**
