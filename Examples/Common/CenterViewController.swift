@@ -39,33 +39,42 @@ class CenterViewController: UIViewController {
     // MARK: Sections & Items
     
     private enum Section {
-        case OpenClose
+        case OpenClose(SlidingPanelController?)
         case ResetViews
         
         private var items: [Item] {
             switch self {
-            case .OpenClose:
-                return self.openCloseItems
+            case .OpenClose(let slidingPanelController):
+                return self.openCloseItems(slidingPanelController)
             case .ResetViews:
                 return self.resetViewsItems
             }
         }
         
-        private var openCloseItems: [Item] {
+        private func openCloseItems(slidingPanelController: SlidingPanelController?) -> [Item] {
             let topPanelText: String
+            let topPanelClosure: ItemTappedClosure?
             let leftPanelText: String
+            let leftPanelClosure: ItemTappedClosure?
             let rightPanelText: String
+            let rightPanelClosure: ItemTappedClosure?
             let bottomPanelText: String
+            let bottomPanelClosure: ItemTappedClosure?
             
             topPanelText = NSString(format: NSLocalizedString("common_panel_action"), NSLocalizedString("common_open"), NSLocalizedString("common_top_panel")).capitalizedString as String
             leftPanelText = NSString(format: NSLocalizedString("common_panel_action"), NSLocalizedString("common_open"), NSLocalizedString("common_left_panel")).capitalizedString as String
             rightPanelText = NSString(format: NSLocalizedString("common_panel_action"), NSLocalizedString("common_open"), NSLocalizedString("common_right_panel")).capitalizedString as String
             bottomPanelText = NSString(format: NSLocalizedString("common_panel_action"), NSLocalizedString("common_open"), NSLocalizedString("common_bottom_panel")).capitalizedString as String
+            
+            topPanelClosure = { slidingPanelController?.openTopPanel() }
+            leftPanelClosure = { slidingPanelController?.openLeftPanel() }
+            rightPanelClosure = { slidingPanelController?.openRightPanel() }
+            bottomPanelClosure = { slidingPanelController?.openBottomPanel() }
 
-            return [(topPanelText, nil),
-                    (leftPanelText, nil),
-                    (rightPanelText, nil),
-                    (bottomPanelText, nil)]
+            return [(topPanelText, topPanelClosure),
+                    (leftPanelText, leftPanelClosure),
+                    (rightPanelText, rightPanelClosure),
+                    (bottomPanelText, bottomPanelClosure)]
         }
         
         private var numberOfItems: Int {
@@ -202,7 +211,9 @@ class CenterViewController: UIViewController {
     }
     
     private func updateTableViewData() {
-        self.availableSections = [.OpenClose, .ResetViews]
+        let slidingPanelController = self.slidingPanelController
+        
+        self.availableSections = [.OpenClose(slidingPanelController), .ResetViews]
     }
     
     private func fillCell(cell: UITableViewCell, withItem item: Item) {
@@ -212,9 +223,11 @@ class CenterViewController: UIViewController {
     // MARK: Actions
     
     internal func leftButtonTapped() {
+        self.slidingPanelController?.openLeftPanel()
     }
     
     internal func rightButtonTapped() {
+        self.slidingPanelController?.openRightPanel()
     }
 }
 

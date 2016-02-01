@@ -32,6 +32,14 @@
 		019A09291C372E5C008ECF15 /* UIViewController+SlidingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019A09271C372E5C008ECF15 /* UIViewController+SlidingPanel.swift */; };
 		01C8E08E1C408562006EA847 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C8E08D1C408562006EA847 /* Main.storyboard */; };
 		01FA846E1C5B3F9800DF8FEF /* SlidingPanelAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA846D1C5B3F9800DF8FEF /* SlidingPanelAnimatable.swift */; };
+		01FA84711C5B417500DF8FEF /* CenterSlidingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA846F1C5B417500DF8FEF /* CenterSlidingAnimation.swift */; };
+		01FA84721C5B417500DF8FEF /* PanelSlidingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA84701C5B417500DF8FEF /* PanelSlidingAnimation.swift */; };
+		01FA84731C5B41D300DF8FEF /* CenterSlidingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA846F1C5B417500DF8FEF /* CenterSlidingAnimation.swift */; };
+		01FA84741C5B41D300DF8FEF /* CenterSlidingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA846F1C5B417500DF8FEF /* CenterSlidingAnimation.swift */; };
+		01FA84751C5B41D600DF8FEF /* PanelSlidingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA84701C5B417500DF8FEF /* PanelSlidingAnimation.swift */; };
+		01FA84761C5B41D700DF8FEF /* PanelSlidingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA84701C5B417500DF8FEF /* PanelSlidingAnimation.swift */; };
+		01FA84771C5B41DB00DF8FEF /* SlidingPanelAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA846D1C5B3F9800DF8FEF /* SlidingPanelAnimatable.swift */; };
+		01FA84781C5B41DD00DF8FEF /* SlidingPanelAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA846D1C5B3F9800DF8FEF /* SlidingPanelAnimatable.swift */; };
 		01FF9F3E1C4162AE00ED41F3 /* ProgrammaticallyInitializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FF9F3D1C4162AE00ED41F3 /* ProgrammaticallyInitializationTests.swift */; };
 		01FF9F401C41634F00ED41F3 /* StoryboardInitializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FF9F3F1C41634F00ED41F3 /* StoryboardInitializationTests.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +65,8 @@
 		019A09271C372E5C008ECF15 /* UIViewController+SlidingPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+SlidingPanel.swift"; sourceTree = "<group>"; };
 		01C8E08D1C408562006EA847 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		01FA846D1C5B3F9800DF8FEF /* SlidingPanelAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingPanelAnimatable.swift; sourceTree = "<group>"; };
+		01FA846F1C5B417500DF8FEF /* CenterSlidingAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterSlidingAnimation.swift; sourceTree = "<group>"; };
+		01FA84701C5B417500DF8FEF /* PanelSlidingAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelSlidingAnimation.swift; sourceTree = "<group>"; };
 		01FF9F3D1C4162AE00ED41F3 /* ProgrammaticallyInitializationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgrammaticallyInitializationTests.swift; sourceTree = "<group>"; };
 		01FF9F3F1C41634F00ED41F3 /* StoryboardInitializationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,9 +173,11 @@
 		019A09231C372D88008ECF15 /* MSSlidingPanelController */ = {
 			isa = PBXGroup;
 			children = (
+				01FA846F1C5B417500DF8FEF /* CenterSlidingAnimation.swift */,
+				01FA84701C5B417500DF8FEF /* PanelSlidingAnimation.swift */,
+				01FA846D1C5B3F9800DF8FEF /* SlidingPanelAnimatable.swift */,
 				019A09241C372D88008ECF15 /* SlidingPanelController.swift */,
 				019A09271C372E5C008ECF15 /* UIViewController+SlidingPanel.swift */,
-				01FA846D1C5B3F9800DF8FEF /* SlidingPanelAnimatable.swift */,
 			);
 			name = MSSlidingPanelController;
 			path = ../MSSlidingPanelController;
@@ -303,9 +315,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01FA84711C5B417500DF8FEF /* CenterSlidingAnimation.swift in Sources */,
 				016957531C36DF2400A8CFAD /* InternationalizationHelper.swift in Sources */,
 				016957561C36E0A900A8CFAD /* GraphicalResources.swift in Sources */,
 				019A09281C372E5C008ECF15 /* UIViewController+SlidingPanel.swift in Sources */,
+				01FA84721C5B417500DF8FEF /* PanelSlidingAnimation.swift in Sources */,
 				013411551C36C125006CD846 /* AppDelegate.swift in Sources */,
 				016957501C36DEAC00A8CFAD /* CenterViewController.swift in Sources */,
 				0169575C1C36EBB200A8CFAD /* PanelViewController.swift in Sources */,
@@ -320,9 +334,12 @@
 			files = (
 				016957541C36DF2400A8CFAD /* InternationalizationHelper.swift in Sources */,
 				016957571C36E0A900A8CFAD /* GraphicalResources.swift in Sources */,
+				01FA84751C5B41D600DF8FEF /* PanelSlidingAnimation.swift in Sources */,
+				01FA84731C5B41D300DF8FEF /* CenterSlidingAnimation.swift in Sources */,
 				019A09291C372E5C008ECF15 /* UIViewController+SlidingPanel.swift in Sources */,
 				0134114F1C36C117006CD846 /* AppDelegate.swift in Sources */,
 				016957511C36DEAC00A8CFAD /* CenterViewController.swift in Sources */,
+				01FA84771C5B41DB00DF8FEF /* SlidingPanelAnimatable.swift in Sources */,
 				0169575D1C36EBBC00A8CFAD /* PanelViewController.swift in Sources */,
 				019A09261C372D88008ECF15 /* SlidingPanelController.swift in Sources */,
 			);
@@ -333,7 +350,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				016563291C4077BE005848CE /* UIViewController+SlidingPanel.swift in Sources */,
+				01FA84741C5B41D300DF8FEF /* CenterSlidingAnimation.swift in Sources */,
+				01FA84761C5B41D700DF8FEF /* PanelSlidingAnimation.swift in Sources */,
 				01FF9F401C41634F00ED41F3 /* StoryboardInitializationTests.swift in Sources */,
+				01FA84781C5B41DD00DF8FEF /* SlidingPanelAnimatable.swift in Sources */,
 				016563281C407671005848CE /* SlidingPanelController.swift in Sources */,
 				01FF9F3E1C4162AE00ED41F3 /* ProgrammaticallyInitializationTests.swift in Sources */,
 			);
