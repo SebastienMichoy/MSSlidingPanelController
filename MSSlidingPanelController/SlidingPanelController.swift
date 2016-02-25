@@ -673,22 +673,19 @@ public final class SlidingPanelController: UIViewController {
     - parameter completion: The closure to execute after the panel closes.
     */
     public func closePanel(completion: ActionCompletion? = nil) {
-//        if let side = self.panelSideDisplayed, panelViewController = self.panelViewControllerForSide(side), percentageVisible = self.percentageVisibleForPanelDisplayed {
-//            let localCompletion: ActionCompletion = { _ in
-//                self.panelSideDisplayedInternal = nil
-//                self.removeChildViewController(panelViewController)
-//                completion?()
-//            }
-//            
-//            self.currentAction = .Closing(NSDate(), localCompletion)
-//            self.displayLink?.paused = false
-//            
-//            if percentageVisible == 1 {
-//                self.animationForSide(side).slidingPanelController(self, willBeginAnimationForSide: side)
-//            }
-//        } else {
-//            completion?()
-//        }
+        guard let side = self.panelSideDisplayed, panelViewController = self.panelViewController(forSide: side) else {
+            completion?()
+            return
+        }
+        
+        let localCompletion: ActionCompletion = {
+            self._panelSideDisplayed = nil
+            self.removeSlidingChildViewController(panelViewController)
+            completion?()
+        }
+        
+        self._currentAction = .Closing(NSDate(), localCompletion)
+        self._displayLink?.paused = false
     }
     
     /**
@@ -721,14 +718,14 @@ public final class SlidingPanelController: UIViewController {
     - parameter completion: The closure to execute after the panel opens.
     */
     public func openPanel(side: Side, withCompletion completion: ActionCompletion? = nil) {
-        guard let panelViewController = self.panelViewController(forSide: side) else {
+        guard let panelViewController = self.panelViewController(forSide: side) where self.panelSideDisplayed != side else {
             return
         }
 
         let openClosure: ActionCompletion = {
             self._panelSideDisplayed = SidePercentage(side: side, andPercentageVisible: 0)
             self._currentAction = .Opening(NSDate(), completion)
-            self.displayLink?.paused = false
+            self._displayLink?.paused = false
 
             let animatable = self.animation(forSide: side)
             let panelFrame = animatable.panelInitialFrame(forSlidingPanelController: self, andSide: side)
@@ -962,10 +959,10 @@ public final class SlidingPanelController: UIViewController {
     /**
     The link to synchronize the `SlidingPanelController` drawing to the refresh rate of the display.
     */
-    private var displayLink: CADisplayLink!
+    private var _displayLink: CADisplayLink!
     
     /**
-    Sets up correctly the variable `displayLink`.
+    Sets up correctly the variable `_displayLink`.
     */
     private func setUpDisplayLink() {
         guard let window = self.view.window else {
@@ -973,9 +970,9 @@ public final class SlidingPanelController: UIViewController {
             exit(0)
         }
         
-        self.displayLink = window.screen.displayLinkWithTarget(self, selector: "updateScreen")
-        self.displayLink.paused = true
-        self.displayLink.addToRunLoop(NSRunLoop.mainRunLoop(), forMode: NSRunLoopCommonModes)
+        self._displayLink = window.screen.displayLinkWithTarget(self, selector: "updateScreen")
+        self._displayLink.paused = true
+        self._displayLink.addToRunLoop(NSRunLoop.mainRunLoop(), forMode: NSRunLoopCommonModes)
     }
     
     /**
@@ -1013,7 +1010,7 @@ public final class SlidingPanelController: UIViewController {
         animation.animate(SlidingPanelController: self, withSide: side, andVisiblePercentage: percentage)
 
         if percentage >= 1 || percentage <= 0 {
-            self.displayLink?.paused = true
+            self._displayLink?.paused = true
 
             self._currentAction = nil
             actionCompletion?()
