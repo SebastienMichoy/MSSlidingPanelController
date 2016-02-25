@@ -218,7 +218,7 @@ class CenterViewController: UIViewController {
     
     // MARK: Update Table View
     
-    private func updateTableView() {
+    internal func updateTableView() {
         self.updateTableViewData()
         self.tableView.reloadData()
     }

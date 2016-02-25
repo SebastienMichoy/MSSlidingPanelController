@@ -45,7 +45,7 @@ class PanelViewController: UIViewController {
         case OpeningGestures
         case ClosingGestures
         case CenterViewInteraction
-        case Actions
+        case Actions(SlidingPanelController?)
         case ResetViews
         
         private var items: [Item] {
@@ -62,28 +62,50 @@ class PanelViewController: UIViewController {
                 return closingGesturesItems
             case .CenterViewInteraction:
                 return centerViewInteractionItems
-            case .Actions:
-                return actionsItems
+            case .Actions(let slidingPanelController):
+                return actionsItems(slidingPanelController)
             case .ResetViews:
                 return resetViewsItems
             }
         }
         
-        private var actionsItems: [Item] {
+        private func actionsItems(let slidingPanelController: SlidingPanelController?) -> [Item] {
+            guard let centerViewController = (slidingPanelController?.centerViewController as? UINavigationController)?.viewControllers.first as? CenterViewController else { return [] }
+            
+            let topPanelActionText: String
             let topPanelText: String
+            let topPanelClosure: ItemTappedClosure?
+            let leftPanelActionText: String
             let leftPanelText: String
+            let leftPanelClosure: ItemTappedClosure?
+            let rightPanelActionText: String
             let rightPanelText: String
+            let rightPanelClosure: ItemTappedClosure?
+            let bottomPanelActionText: String
             let bottomPanelText: String
+            let bottomPanelClosure: ItemTappedClosure?
             
-            topPanelText = NSString(format: NSLocalizedString("common_panel_action"), NSLocalizedString("common_open"), NSLocalizedString("common_top_panel")).capitalizedString as String
-            leftPanelText = NSString(format: NSLocalizedString("common_panel_action"), NSLocalizedString("common_open"), NSLocalizedString("common_left_panel")).capitalizedString as String
-            rightPanelText = NSString(format: NSLocalizedString("common_panel_action"), NSLocalizedString("common_open"), NSLocalizedString("common_right_panel")).capitalizedString as String
-            bottomPanelText = NSString(format: NSLocalizedString("common_panel_action"), NSLocalizedString("common_open"), NSLocalizedString("common_bottom_panel")).capitalizedString as String
+            let updateTableView: SlidingPanelController.ActionCompletion = { centerViewController.updateTableView() }
             
-            return [(topPanelText, false, nil),
-                    (leftPanelText, false, nil),
-                    (rightPanelText, false, nil),
-                    (bottomPanelText, false, nil)]
+            topPanelActionText = (slidingPanelController?.panelSideDisplayed == .Top) ? NSLocalizedString("common_close") : NSLocalizedString("common_open")
+            leftPanelActionText = (slidingPanelController?.panelSideDisplayed == .Left) ? NSLocalizedString("common_close") : NSLocalizedString("common_open")
+            rightPanelActionText = (slidingPanelController?.panelSideDisplayed == .Right) ? NSLocalizedString("common_close") : NSLocalizedString("common_open")
+            bottomPanelActionText = (slidingPanelController?.panelSideDisplayed == .Bottom) ? NSLocalizedString("common_close") : NSLocalizedString("common_open")
+            
+            topPanelText = NSString(format: NSLocalizedString("common_panel_action"), topPanelActionText, NSLocalizedString("common_top_panel")).capitalizedString as String
+            leftPanelText = NSString(format: NSLocalizedString("common_panel_action"), leftPanelActionText, NSLocalizedString("common_left_panel")).capitalizedString as String
+            rightPanelText = NSString(format: NSLocalizedString("common_panel_action"), rightPanelActionText, NSLocalizedString("common_right_panel")).capitalizedString as String
+            bottomPanelText = NSString(format: NSLocalizedString("common_panel_action"), bottomPanelActionText, NSLocalizedString("common_bottom_panel")).capitalizedString as String
+            
+            topPanelClosure = { (slidingPanelController?.panelSideDisplayed == .Top) ? slidingPanelController?.closePanel(updateTableView) : slidingPanelController?.openTopPanel(updateTableView) }
+            leftPanelClosure = { (slidingPanelController?.panelSideDisplayed == .Left) ? slidingPanelController?.closePanel(updateTableView) : slidingPanelController?.openLeftPanel(updateTableView) }
+            rightPanelClosure = { (slidingPanelController?.panelSideDisplayed == .Right) ? slidingPanelController?.closePanel(updateTableView) : slidingPanelController?.openRightPanel(updateTableView) }
+            bottomPanelClosure = { (slidingPanelController?.panelSideDisplayed == .Bottom) ? slidingPanelController?.closePanel(updateTableView) : slidingPanelController?.openBottomPanel(updateTableView) }
+            
+            return [(topPanelText, false, topPanelClosure),
+                    (leftPanelText, false, leftPanelClosure),
+                    (rightPanelText, false, rightPanelClosure),
+                    (bottomPanelText, false, bottomPanelClosure)]
         }
         
         private var animationItems: [Item] {
@@ -237,7 +259,9 @@ class PanelViewController: UIViewController {
     }
     
     private func updateTableViewData() {
-        self.availableSections = [.PanelWidth, .Animation, .StatusBar, .OpeningGestures, .ClosingGestures, .CenterViewInteraction, .Actions, .ResetViews]
+        let slidingPanelController = self.slidingPanelController
+        
+        self.availableSections = [.PanelWidth, .Animation, .StatusBar, .OpeningGestures, .ClosingGestures, .CenterViewInteraction, .Actions(slidingPanelController), .ResetViews]
     }
     
     private func fillCell(cell: UITableViewCell, withItem item: Item) {
