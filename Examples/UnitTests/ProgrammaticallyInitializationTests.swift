@@ -45,6 +45,7 @@ final class ProgrammaticallyInitializationTests: XCTestCase {
         
         self.slidingPanelController = SlidingPanelController(centerViewController: centerViewController, leftViewController: leftViewController, rightViewController: rightViewController, topViewController: topViewController, bottomViewController: bottomViewController)
         
+        // Forces the view life cycle
         let _ = self.slidingPanelController.view
     }
     

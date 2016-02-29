@@ -41,6 +41,7 @@ class StoryboardInitializationTests: XCTestCase {
         let storyboard = UIStoryboard(name: "Main", bundle: bundle)
         self.slidingPanelController = storyboard.instantiateInitialViewController() as! SlidingPanelController
         
+        // Forces the view life cycle
         let _ = self.slidingPanelController.view
     }
     
