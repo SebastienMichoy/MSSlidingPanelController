@@ -316,18 +316,21 @@ public final class SlidingPanelController: UIViewController {
     }
     
     /**
-    The panel side displayed. Return `nil` if no panel is displayed.
+    The panel side displayed. Returns `nil` if no panel is displayed.
     This property must be used only for internal purpose.
     */
     private var _panelSideDisplayed: SidePercentage?
     
     /**
-    The panel side displayed. Return `nil` if no panel is displayed.
+    The panel side displayed. Returns `nil` if no panel is displayed.
     */
     public var panelSideDisplayed: Side? {
         return Side(side: self._panelSideDisplayed)
     }
     
+    /**
+    The percentage visible for the panel displayed. Returns `nil` if no panel is displayed.
+    */
     public var percentageVisibleForPanelDisplayed: CGFloat? {
         get {
             return self._panelSideDisplayed?.percentage
@@ -410,7 +413,7 @@ public final class SlidingPanelController: UIViewController {
     The left animation duration, in seconds.
     It's default value is `1`.
     */
-    private var leftAnimationDuration: NSTimeInterval = 1
+    public var leftAnimationDuration: NSTimeInterval = 1
     
     /**
     The type of animation used for the left panel interactions.
@@ -474,7 +477,7 @@ public final class SlidingPanelController: UIViewController {
     The right animation duration, in seconds.
     It's default value is `1`.
     */
-    private var rightAnimationDuration: NSTimeInterval = 1
+    public var rightAnimationDuration: NSTimeInterval = 1
     
     /**
     The type of animation used for the right panel interactions.
@@ -538,7 +541,7 @@ public final class SlidingPanelController: UIViewController {
     The top animation duration, in seconds.
     It's default value is `1`.
     */
-    private var topAnimationDuration: NSTimeInterval = 1
+    public var topAnimationDuration: NSTimeInterval = 1
     
     /**
     The type of animation used for the top panel interactions.
@@ -602,7 +605,7 @@ public final class SlidingPanelController: UIViewController {
     The bottom animation duration, in seconds.
     It's default value is `1`.
     */
-    private var bottomAnimationDuration: NSTimeInterval = 1
+    public var bottomAnimationDuration: NSTimeInterval = 1
     
     /**
     The type of animation used for the bottom panel interactions.
