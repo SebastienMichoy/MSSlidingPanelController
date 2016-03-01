@@ -27,7 +27,7 @@
 //  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 //  POSSIBILITY OF SUCH DAMAGE.
 
-import SlidingPanelExamples_Programmatically
+import class SlidingPanelExamples_Programmatically.SlidingPanelController
 import XCTest
 
 class StoryboardInitializationTests: XCTestCase {

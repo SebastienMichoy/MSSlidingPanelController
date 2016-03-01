@@ -36,7 +36,7 @@ public extension UIViewController {
     /**
     The nearest ancestor in the view controller hierarchy that is a sliding panel controller (read-only).
     */
-    var slidingPanelController: SlidingPanelController? {
+    public var slidingPanelController: SlidingPanelController? {
         if let slidingPanelController = self as? SlidingPanelController {
             return slidingPanelController
         }

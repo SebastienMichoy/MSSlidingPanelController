@@ -31,7 +31,7 @@ import UIKit
 
 /**
 */
-class CenterSlidingAnimation: SlidingPanelAnimatable {
+internal class CenterSlidingAnimation: SlidingPanelAnimatable {
     
     /**
      Asks the sliding panel animatable to set up views during the animation.
@@ -41,7 +41,7 @@ class CenterSlidingAnimation: SlidingPanelAnimatable {
      - parameter side:                   The side of the panel.
      - parameter percentage:             The visible percentage of the panel.
      */
-    func animate(SlidingPanelController slidingPanelController: SlidingPanelController, withSide side: SlidingPanelController.Side, andVisiblePercentage percentage: CGFloat) {
+    internal func animate(SlidingPanelController slidingPanelController: SlidingPanelController, withSide side: SlidingPanelController.Side, andVisiblePercentage percentage: CGFloat) {
         var x = CGFloat(0)
         var y = CGFloat(0)
         
@@ -64,7 +64,7 @@ class CenterSlidingAnimation: SlidingPanelAnimatable {
      
      - returns: The panel initial frame.
      */
-    func panelInitialFrame(forSlidingPanelController slidingPanelController: SlidingPanelController, andSide side: SlidingPanelController.Side) -> CGRect {
+    internal func panelInitialFrame(forSlidingPanelController slidingPanelController: SlidingPanelController, andSide side: SlidingPanelController.Side) -> CGRect {
         let panelOrigin: CGPoint
         let panelSize: CGSize
         
@@ -95,7 +95,7 @@ class CenterSlidingAnimation: SlidingPanelAnimatable {
      
      - returns: The panel position compared to the center view.
      */
-    func panelPositionInViewHierarchy(forSlidingPanelController slidingPanelController: SlidingPanelController, andSide side: SlidingPanelController.Side) -> SlidingPanelController.PanelPositionViewHierarchy {
+    internal func panelPositionInViewHierarchy(forSlidingPanelController slidingPanelController: SlidingPanelController, andSide side: SlidingPanelController.Side) -> SlidingPanelController.PanelPositionViewHierarchy {
         return .BelowCenterView
     }
 }
