@@ -1,5 +1,5 @@
 //
-//  OpenTests.swift
+//  OpenCloseTests.swift
 //
 //  Copyright © 2016-present Sébastien MICHOY and contributors.
 //
@@ -71,72 +71,96 @@ class OpenTests: XCTestCase {
     
     // MARK: Tests
     
-    func testOpenLeft() {
+    func testOpenCloseLeft() {
         let expectation = expectationWithDescription("Open the left panel.")
         
         XCTAssertNil(self.slidingPanelController.panelSideDisplayed, "The panel side displayed is not nil.")
+        XCTAssertNil(self.slidingPanelController.percentageVisibleForPanelDisplayed, "The panel side displayed is not fully closed.")
         
         self.slidingPanelController.openLeftPanel {
             XCTAssertEqual(self.slidingPanelController.panelSideDisplayed, .Left, "The panel side displayed is not the left one.")
             XCTAssertEqual(self.slidingPanelController.percentageVisibleForPanelDisplayed, 1, "The panel side displayed is not fully opened.")
-            expectation.fulfill()
+            
+            self.slidingPanelController.closePanel {
+                XCTAssertNil(self.slidingPanelController.panelSideDisplayed, "The panel side displayed is not nil.")
+                XCTAssertNil(self.slidingPanelController.percentageVisibleForPanelDisplayed, "The panel side displayed is not fully closed.")
+                expectation.fulfill()
+            }
         }
         
-        waitForExpectationsWithTimeout(self.slidingPanelController.animationDuration(forSide: .Left) + 1) { error in
+        waitForExpectationsWithTimeout((self.slidingPanelController.animationDuration(forSide: .Left) * 2) + 1) { error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
             }
         }
     }
     
-    func testOpenRight() {
+    func testOpenCloseRight() {
         let expectation = expectationWithDescription("Open the right panel.")
         
         XCTAssertNil(self.slidingPanelController.panelSideDisplayed, "The panel side displayed is not nil.")
+        XCTAssertNil(self.slidingPanelController.percentageVisibleForPanelDisplayed, "The panel side displayed is not fully closed.")
         
         self.slidingPanelController.openRightPanel {
             XCTAssertEqual(self.slidingPanelController.panelSideDisplayed, .Right, "The panel side displayed is not the right one.")
             XCTAssertEqual(self.slidingPanelController.percentageVisibleForPanelDisplayed, 1, "The panel side displayed is not fully opened.")
-            expectation.fulfill()
+            
+            self.slidingPanelController.closePanel {
+                XCTAssertNil(self.slidingPanelController.panelSideDisplayed, "The panel side displayed is not nil.")
+                XCTAssertNil(self.slidingPanelController.percentageVisibleForPanelDisplayed, "The panel side displayed is not fully closed.")
+                expectation.fulfill()
+            }
         }
         
-        waitForExpectationsWithTimeout(self.slidingPanelController.animationDuration(forSide: .Right) + 1) { error in
+        waitForExpectationsWithTimeout((self.slidingPanelController.animationDuration(forSide: .Right) * 2) + 1) { error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
             }
         }
     }
     
-    func testOpenTop() {
+    func testOpenCloseTop() {
         let expectation = expectationWithDescription("Open the top panel.")
         
         XCTAssertNil(self.slidingPanelController.panelSideDisplayed, "The panel side displayed is not nil.")
+        XCTAssertNil(self.slidingPanelController.percentageVisibleForPanelDisplayed, "The panel side displayed is not fully closed.")
         
         self.slidingPanelController.openTopPanel {
             XCTAssertEqual(self.slidingPanelController.panelSideDisplayed, .Top, "The panel side displayed is not the top one.")
             XCTAssertEqual(self.slidingPanelController.percentageVisibleForPanelDisplayed, 1, "The panel side displayed is not fully opened.")
-            expectation.fulfill()
+            
+            self.slidingPanelController.closePanel {
+                XCTAssertNil(self.slidingPanelController.panelSideDisplayed, "The panel side displayed is not nil.")
+                XCTAssertNil(self.slidingPanelController.percentageVisibleForPanelDisplayed, "The panel side displayed is not fully closed.")
+                expectation.fulfill()
+            }
         }
         
-        waitForExpectationsWithTimeout(self.slidingPanelController.animationDuration(forSide: .Top) + 1) { error in
+        waitForExpectationsWithTimeout((self.slidingPanelController.animationDuration(forSide: .Top) * 2) + 1) { error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
             }
         }
     }
     
-    func testOpenBottom() {
+    func testOpenCloseBottom() {
         let expectation = expectationWithDescription("Open the bottom panel.")
         
         XCTAssertNil(self.slidingPanelController.panelSideDisplayed, "The panel side displayed is not nil.")
+        XCTAssertNil(self.slidingPanelController.percentageVisibleForPanelDisplayed, "The panel side displayed is not fully closed.")
         
         self.slidingPanelController.openBottomPanel {
             XCTAssertEqual(self.slidingPanelController.panelSideDisplayed, .Bottom, "The panel side displayed is not the bottom one.")
             XCTAssertEqual(self.slidingPanelController.percentageVisibleForPanelDisplayed, 1, "The panel side displayed is not fully opened.")
-            expectation.fulfill()
+            
+            self.slidingPanelController.closePanel {
+                XCTAssertNil(self.slidingPanelController.panelSideDisplayed, "The panel side displayed is not nil.")
+                XCTAssertNil(self.slidingPanelController.percentageVisibleForPanelDisplayed, "The panel side displayed is not fully closed.")
+                expectation.fulfill()
+            }
         }
         
-        waitForExpectationsWithTimeout(self.slidingPanelController.animationDuration(forSide: .Bottom) + 1) { error in
+        waitForExpectationsWithTimeout((self.slidingPanelController.animationDuration(forSide: .Bottom) * 2) + 1) { error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
             }

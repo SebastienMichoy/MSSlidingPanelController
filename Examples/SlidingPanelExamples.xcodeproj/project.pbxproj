@@ -14,7 +14,7 @@
 		0134114F1C36C117006CD846 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0134114D1C36C117006CD846 /* AppDelegate.swift */; };
 		013411551C36C125006CD846 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013411521C36C125006CD846 /* AppDelegate.swift */; };
 		013411571C36C125006CD846 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 013411541C36C125006CD846 /* Main.storyboard */; };
-		015888EB1C83716F004D907A /* OpenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015888EA1C83716F004D907A /* OpenTests.swift */; };
+		015888EF1C84964E004D907A /* OpenCloseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015888EE1C84964E004D907A /* OpenCloseTests.swift */; };
 		016957501C36DEAC00A8CFAD /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169574F1C36DEAC00A8CFAD /* CenterViewController.swift */; };
 		016957511C36DEAC00A8CFAD /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169574F1C36DEAC00A8CFAD /* CenterViewController.swift */; };
 		016957531C36DF2400A8CFAD /* InternationalizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016957521C36DF2400A8CFAD /* InternationalizationHelper.swift */; };
@@ -62,7 +62,7 @@
 		013411541C36C125006CD846 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		014E92491C407427003136ED /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		014E924D1C407427003136ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		015888EA1C83716F004D907A /* OpenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenTests.swift; sourceTree = "<group>"; };
+		015888EE1C84964E004D907A /* OpenCloseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenCloseTests.swift; sourceTree = "<group>"; };
 		0169574F1C36DEAC00A8CFAD /* CenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
 		016957521C36DF2400A8CFAD /* InternationalizationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternationalizationHelper.swift; sourceTree = "<group>"; };
 		016957551C36E0A900A8CFAD /* GraphicalResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicalResources.swift; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 				01C8E08D1C408562006EA847 /* Main.storyboard */,
 				01FF9F3D1C4162AE00ED41F3 /* ProgrammaticallyInitializationTests.swift */,
 				01FF9F3F1C41634F00ED41F3 /* StoryboardInitializationTests.swift */,
-				015888EA1C83716F004D907A /* OpenTests.swift */,
+				015888EE1C84964E004D907A /* OpenCloseTests.swift */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -361,7 +361,7 @@
 			files = (
 				01FF9F401C41634F00ED41F3 /* StoryboardInitializationTests.swift in Sources */,
 				01FF9F3E1C4162AE00ED41F3 /* ProgrammaticallyInitializationTests.swift in Sources */,
-				015888EB1C83716F004D907A /* OpenTests.swift in Sources */,
+				015888EF1C84964E004D907A /* OpenCloseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
