@@ -610,7 +610,7 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
     
     windowSize = [[UIScreen mainScreen] bounds].size;
     
-    if ([self storyboard])
+    if ([self storyboard] && self.loadViewsFromStoryboard)
         [self setViewsFromStoryboard];
     
     [self setStatusBarView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, windowSize.width, 20)]];
@@ -726,6 +726,7 @@ typedef NS_ENUM(NSUInteger, MSSPPanTouchLocation)
  
     [self setAnimationVelocity:g_animationVelocity];
     [self setSideDisplayed:MSSPSideDisplayedNone];
+    [self setLoadViewsFromStoryboard:YES];
 }
 
 /**

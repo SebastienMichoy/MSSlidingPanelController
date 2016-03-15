@@ -321,6 +321,14 @@ typedef NS_ENUM(NSUInteger, MSSPSideDisplayed)
 @property (nonatomic, assign)           BOOL                                    rightPanelStatusBarDisplayedSmoothly;
 
 /**
+ *  Indicate that views should be loaded from storyboard by segues.
+ *
+ *  By default, this value is `YES`.
+ */
+@property (nonatomic, assign)           BOOL                                    loadViewsFromStoryboard;
+
+
+/**
  *  Set the maximum width of the right panel with.
  *
  *  @param maximumWidth Panel's maximum width.
