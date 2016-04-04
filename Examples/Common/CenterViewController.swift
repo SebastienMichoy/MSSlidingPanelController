@@ -204,11 +204,11 @@ class CenterViewController: UIViewController {
         
         self.navBarLeftMenuButtonItem.image = GraphicalResources.imageOfMenuIcon
         self.navBarLeftMenuButtonItem.target = self
-        self.navBarLeftMenuButtonItem.action = "leftButtonTapped"
+        self.navBarLeftMenuButtonItem.action = #selector(CenterViewController.leftButtonTapped)
         
         self.navBarRightMenuButtonItem.image = GraphicalResources.imageOfMenuIcon
         self.navBarRightMenuButtonItem.target = self
-        self.navBarRightMenuButtonItem.action = "rightButtonTapped"
+        self.navBarRightMenuButtonItem.action = #selector(CenterViewController.rightButtonTapped)
     }
     
     private func setupTableView() {

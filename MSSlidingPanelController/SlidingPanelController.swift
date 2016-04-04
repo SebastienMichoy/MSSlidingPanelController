@@ -973,7 +973,7 @@ public final class SlidingPanelController: UIViewController {
             exit(0)
         }
         
-        self._displayLink = window.screen.displayLinkWithTarget(self, selector: "updateScreen")
+        self._displayLink = window.screen.displayLinkWithTarget(self, selector: #selector(SlidingPanelController.updateScreen))
         self._displayLink.paused = true
         self._displayLink.addToRunLoop(NSRunLoop.mainRunLoop(), forMode: NSRunLoopCommonModes)
     }
