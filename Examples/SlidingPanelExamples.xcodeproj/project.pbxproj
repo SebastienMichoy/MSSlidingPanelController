@@ -25,6 +25,7 @@
 		0169575A1C36E17300A8CFAD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 016957581C36E17300A8CFAD /* Localizable.strings */; };
 		0169575C1C36EBB200A8CFAD /* PanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169575B1C36EBB200A8CFAD /* PanelViewController.swift */; };
 		0169575D1C36EBBC00A8CFAD /* PanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169575B1C36EBB200A8CFAD /* PanelViewController.swift */; };
+		019205E41CB248A6000EB730 /* CenterSlidingAnimationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019205E31CB248A6000EB730 /* CenterSlidingAnimationTests.swift */; };
 		019A09251C372D88008ECF15 /* SlidingPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019A09241C372D88008ECF15 /* SlidingPanelController.swift */; };
 		019A09261C372D88008ECF15 /* SlidingPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019A09241C372D88008ECF15 /* SlidingPanelController.swift */; };
 		019A09281C372E5C008ECF15 /* UIViewController+SlidingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019A09271C372E5C008ECF15 /* UIViewController+SlidingPanel.swift */; };
@@ -68,6 +69,7 @@
 		016957551C36E0A900A8CFAD /* GraphicalResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicalResources.swift; sourceTree = "<group>"; };
 		016957581C36E17300A8CFAD /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		0169575B1C36EBB200A8CFAD /* PanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelViewController.swift; sourceTree = "<group>"; };
+		019205E31CB248A6000EB730 /* CenterSlidingAnimationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterSlidingAnimationTests.swift; sourceTree = "<group>"; };
 		019A09241C372D88008ECF15 /* SlidingPanelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingPanelController.swift; sourceTree = "<group>"; };
 		019A09271C372E5C008ECF15 /* UIViewController+SlidingPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+SlidingPanel.swift"; sourceTree = "<group>"; };
 		01C8E08D1C408562006EA847 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			children = (
 				014E924D1C407427003136ED /* Info.plist */,
 				01C8E08D1C408562006EA847 /* Main.storyboard */,
+				019205E31CB248A6000EB730 /* CenterSlidingAnimationTests.swift */,
 				01FF9F3D1C4162AE00ED41F3 /* ProgrammaticallyInitializationTests.swift */,
 				01FF9F3F1C41634F00ED41F3 /* StoryboardInitializationTests.swift */,
 				015888EE1C84964E004D907A /* OpenCloseTests.swift */,
@@ -361,6 +364,7 @@
 			files = (
 				01FF9F401C41634F00ED41F3 /* StoryboardInitializationTests.swift in Sources */,
 				01FF9F3E1C4162AE00ED41F3 /* ProgrammaticallyInitializationTests.swift in Sources */,
+				019205E41CB248A6000EB730 /* CenterSlidingAnimationTests.swift in Sources */,
 				015888EF1C84964E004D907A /* OpenCloseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
