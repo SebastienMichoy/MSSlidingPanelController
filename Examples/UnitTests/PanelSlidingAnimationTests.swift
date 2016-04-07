@@ -1,5 +1,5 @@
 //
-//  CenterSlidingAnimationTests.swift
+//  PanelSlidingAnimationTests.swift
 //
 //  Copyright © 2016-present Sébastien MICHOY and contributors.
 //
@@ -30,7 +30,7 @@
 @testable import SlidingPanelExamples_Programmatically
 import XCTest
 
-final class CenterSlidingAnimationTests: XCTestCase {
+final class PanelSlidingAnimationTests : XCTestCase {
     
     // MARK: Tests Setup
     
@@ -44,7 +44,7 @@ final class CenterSlidingAnimationTests: XCTestCase {
     
     // MARK: Helper
     
-    private func checkInitialPanelFrame(withSlidingPanelController slidingPanelController: SlidingPanelController, animation: CenterSlidingAnimation, andSide side: SlidingPanelController.Side) {
+    private func checkInitialPanelFrame(withSlidingPanelController slidingPanelController: SlidingPanelController, animation: PanelSlidingAnimation, andSide side: SlidingPanelController.Side) {
         let expectedFrame: CGRect
         let initialFrame: CGRect
         let sideString: String
@@ -59,20 +59,22 @@ final class CenterSlidingAnimationTests: XCTestCase {
         
         switch side {
         case .Left:
+            x = -slidingPanelController.leftPanelWidth
             width = slidingPanelController.leftPanelWidth
             height = slidingPanelControllerHeight
             sideString = "left"
         case .Right:
-            x = slidingPanelControllerWidth - slidingPanelController.rightPanelWidth
+            x = slidingPanelControllerWidth
             width = slidingPanelController.rightPanelWidth
             height = slidingPanelControllerHeight
             sideString = "right"
         case .Top:
+            y = -slidingPanelController.topPanelHeight
             width = slidingPanelControllerWidth
             height = slidingPanelController.topPanelHeight
             sideString = "top"
         case .Bottom:
-            y = slidingPanelControllerHeight - slidingPanelController.bottomPanelHeight
+            y = slidingPanelControllerHeight
             width = slidingPanelControllerWidth
             height = slidingPanelController.bottomPanelHeight
             sideString = "bottom"
@@ -84,9 +86,9 @@ final class CenterSlidingAnimationTests: XCTestCase {
         XCTAssertEqual(initialFrame, expectedFrame, "The \(sideString) panel initial frame doesn't match.")
     }
     
-    private func checkPositionInViewHierarchy(withSlidingPanelController slidingPanelController: SlidingPanelController, animation: CenterSlidingAnimation, andSide side: SlidingPanelController.Side) {
+    private func checkPositionInViewHierarchy(withSlidingPanelController slidingPanelController: SlidingPanelController, animation: PanelSlidingAnimation, andSide side: SlidingPanelController.Side) {
         let position = animation.panelPositionInViewHierarchy(forSlidingPanelController: slidingPanelController, andSide: side)
-        let expectedPosition = SlidingPanelController.PanelPositionViewHierarchy.BelowCenterView
+        let expectedPosition = SlidingPanelController.PanelPositionViewHierarchy.AboveCenterView
         let sideString: String
         
         switch side {
@@ -99,34 +101,37 @@ final class CenterSlidingAnimationTests: XCTestCase {
         XCTAssertEqual(position, expectedPosition, "The \(sideString) panel view hierarchy doesn't match.")
     }
     
-    private func checkAnimation(withSlidingPanelController slidingPanelController: SlidingPanelController, animation: CenterSlidingAnimation, side: SlidingPanelController.Side, andVisiblePercentage percentage: CGFloat) {
-        let leftExpectedPanelFrame = animation.panelInitialFrame(forSlidingPanelController: slidingPanelController, andSide: .Left)
-        let rightExpectedPanelFrame = animation.panelInitialFrame(forSlidingPanelController: slidingPanelController, andSide: .Right)
-        let topExpectedPanelFrame = animation.panelInitialFrame(forSlidingPanelController: slidingPanelController, andSide: .Top)
-        let bottomExpectedPanelFrame = animation.panelInitialFrame(forSlidingPanelController: slidingPanelController, andSide: .Bottom)
-        
-        let expectedFrame: CGRect
-        let frame: CGRect
-        
+    private func checkAnimation(withSlidingPanelController slidingPanelController: SlidingPanelController, animation: PanelSlidingAnimation, side: SlidingPanelController.Side, andVisiblePercentage percentage: CGFloat) {
         let slidingPanelControllerWidth = slidingPanelController.view.bounds.width
         let slidingPanelControllerHeight = slidingPanelController.view.bounds.height
+        
+        let centerViewExpectedFrame = CGRect(x: 0, y: 0, width: slidingPanelControllerWidth, height: slidingPanelControllerHeight)
+        var leftExpectedPanelFrame = slidingPanelController.leftView?.frame ?? CGRectZero
+        var rightExpectedPanelFrame = slidingPanelController.rightView?.frame ?? CGRectZero
+        var topExpectedPanelFrame = slidingPanelController.topView?.frame ?? CGRectZero
+        var bottomExpectedPanelFrame = slidingPanelController.bottomView?.frame ?? CGRectZero
         
         var x = CGFloat(0)
         var y = CGFloat(0)
         
         switch side {
-        case .Left: x = slidingPanelController.leftPanelWidth * percentage
-        case .Right: x = -slidingPanelController.rightPanelWidth * percentage
-        case .Top: y = slidingPanelController.topPanelHeight * percentage
-        case .Bottom: y = -slidingPanelController.bottomPanelHeight * percentage
+        case .Left:
+            x = (slidingPanelController.leftPanelWidth * percentage) - slidingPanelController.leftPanelWidth
+            leftExpectedPanelFrame.origin.x = x
+        case .Right:
+            x = (-slidingPanelController.rightPanelWidth * percentage) + CGRectGetWidth(slidingPanelController.view.bounds)
+            rightExpectedPanelFrame.origin.x = x
+        case .Top:
+            y = (slidingPanelController.topPanelHeight * percentage) - slidingPanelController.topPanelHeight
+            topExpectedPanelFrame.origin.y = y
+        case .Bottom:
+            y = (-slidingPanelController.bottomPanelHeight * percentage) + CGRectGetHeight(slidingPanelController.view.bounds)
+            bottomExpectedPanelFrame.origin.y = y
         }
         
         animation.animate(SlidingPanelController: slidingPanelController, withSide: side, andVisiblePercentage: percentage)
-
-        expectedFrame = CGRect(x: x, y: y, width: slidingPanelControllerWidth, height: slidingPanelControllerHeight)
-        frame = slidingPanelController.centerView.frame
         
-        XCTAssertEqual(frame, expectedFrame, "The center view frame doesn't match.")
+        XCTAssertEqual(slidingPanelController.centerView.frame, centerViewExpectedFrame, "The center view frame doesn't match.")
         if let leftPanelFrame = slidingPanelController.leftView?.frame { XCTAssertEqual(leftPanelFrame, leftExpectedPanelFrame, "The left panel frame doesn't match.") }
         if let rightPanelFrame = slidingPanelController.rightView?.frame { XCTAssertEqual(rightPanelFrame, rightExpectedPanelFrame, "The right panel frame doesn't match.") }
         if let topPanelFrame = slidingPanelController.topView?.frame { XCTAssertEqual(topPanelFrame, topExpectedPanelFrame, "The top panel frame doesn't match.") }
@@ -136,7 +141,7 @@ final class CenterSlidingAnimationTests: XCTestCase {
     // MARK: Tests
     
     func testInitialPosition() {
-        let animation = CenterSlidingAnimation()
+        let animation = PanelSlidingAnimation()
         let centerViewController = UIViewController()
         
         let slidingPanelController = SlidingPanelController(centerViewController: centerViewController)
@@ -162,7 +167,7 @@ final class CenterSlidingAnimationTests: XCTestCase {
     }
     
     func testPositionInViewHierarchy() {
-        let animation = CenterSlidingAnimation()
+        let animation = PanelSlidingAnimation()
         let centerViewController = UIViewController()
         let slidingPanelController = SlidingPanelController(centerViewController: centerViewController)
         
@@ -173,7 +178,7 @@ final class CenterSlidingAnimationTests: XCTestCase {
     }
     
     func testAnimation() {
-        let animation = CenterSlidingAnimation()
+        let animation = PanelSlidingAnimation()
         
         let centerViewController = UIViewController()
         let leftViewController = UIViewController()

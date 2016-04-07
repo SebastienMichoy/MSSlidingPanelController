@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0120BA371CB4E58C00209CDF /* PanelSlidingAnimationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120BA361CB4E58C00209CDF /* PanelSlidingAnimationTests.swift */; };
 		013411461C36C100006CD846 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 013411421C36C100006CD846 /* Assets.xcassets */; };
 		013411471C36C100006CD846 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 013411421C36C100006CD846 /* Assets.xcassets */; };
 		013411481C36C100006CD846 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 013411431C36C100006CD846 /* LaunchScreen.storyboard */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0120BA361CB4E58C00209CDF /* PanelSlidingAnimationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelSlidingAnimationTests.swift; sourceTree = "<group>"; };
 		013411191C36C008006CD846 /* SlidingPanelExamples_Storyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlidingPanelExamples_Storyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0134112F1C36C039006CD846 /* SlidingPanelExamples_Programmatically.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlidingPanelExamples_Programmatically.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		013411421C36C100006CD846 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				014E924D1C407427003136ED /* Info.plist */,
 				01C8E08D1C408562006EA847 /* Main.storyboard */,
 				019205E31CB248A6000EB730 /* CenterSlidingAnimationTests.swift */,
+				0120BA361CB4E58C00209CDF /* PanelSlidingAnimationTests.swift */,
 				01FF9F3D1C4162AE00ED41F3 /* ProgrammaticallyInitializationTests.swift */,
 				01FF9F3F1C41634F00ED41F3 /* StoryboardInitializationTests.swift */,
 				015888EE1C84964E004D907A /* OpenCloseTests.swift */,
@@ -366,6 +369,7 @@
 				01FF9F3E1C4162AE00ED41F3 /* ProgrammaticallyInitializationTests.swift in Sources */,
 				019205E41CB248A6000EB730 /* CenterSlidingAnimationTests.swift in Sources */,
 				015888EF1C84964E004D907A /* OpenCloseTests.swift in Sources */,
+				0120BA371CB4E58C00209CDF /* PanelSlidingAnimationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
