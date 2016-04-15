@@ -1010,7 +1010,7 @@ public final class SlidingPanelController: UIViewController {
         }
 
         self.percentageVisibleForPanelDisplayed = percentage
-        animation.animate(SlidingPanelController: self, withSide: side, andVisiblePercentage: percentage)
+        animation.animate(slidingPanelController: self, withSide: side, andVisiblePercentage: percentage)
 
         if percentage >= 1 || percentage <= 0 {
             self._displayLink?.paused = true

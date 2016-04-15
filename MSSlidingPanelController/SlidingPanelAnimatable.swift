@@ -42,8 +42,8 @@ public protocol SlidingPanelAnimatable {
     - parameter side:                   The side of the panel.
     - parameter percentage:             The visible percentage of the panel.
     */
-    func animate(SlidingPanelController slidingPanelController: SlidingPanelController, withSide side: SlidingPanelController.Side, andVisiblePercentage percentage: CGFloat)
-        
+    func animate(slidingPanelController slidingPanelController: SlidingPanelController, withSide side: SlidingPanelController.Side, andVisiblePercentage percentage: CGFloat)
+    
     /**
     Asks the initial frame of a panel in order to add it in the view hierarchy.
     This method is called right before the view is added in the view hierarchy.

@@ -41,7 +41,7 @@ internal class CenterSlidingAnimation: SlidingPanelAnimatable {
      - parameter side:                   The side of the panel.
      - parameter percentage:             The visible percentage of the panel.
      */
-    internal func animate(SlidingPanelController slidingPanelController: SlidingPanelController, withSide side: SlidingPanelController.Side, andVisiblePercentage percentage: CGFloat) {
+    internal func animate(slidingPanelController slidingPanelController: SlidingPanelController, withSide side: SlidingPanelController.Side, andVisiblePercentage percentage: CGFloat) {
         var x = CGFloat(0)
         var y = CGFloat(0)
         
