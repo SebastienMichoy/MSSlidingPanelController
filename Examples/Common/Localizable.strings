@@ -49,6 +49,7 @@
 
 // Panel View
 
+"panel_view_section_panel_height_title" = "panel height";
 "panel_view_section_panel_width_title" = "panel width";
 "panel_view_section_animation_title" = "animation";
 "panel_view_section_status_bar_title" = "status bar";

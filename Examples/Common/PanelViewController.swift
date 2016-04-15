@@ -39,7 +39,7 @@ class PanelViewController: UIViewController {
     // MARK: Sections & Items
     
     private enum Section {
-        case PanelWidth
+        case PanelWidthHeight(SlidingPanelController?)
         case Animation
         case StatusBar
         case OpeningGestures
@@ -50,8 +50,8 @@ class PanelViewController: UIViewController {
         
         private var items: [Item] {
             switch self {
-            case .PanelWidth:
-                return panelWidthItems
+            case .PanelWidthHeight(let slidingPanelController):
+                return panelWidthHeightItems(slidingPanelController)
             case .Animation:
                 return animationItems
             case .StatusBar:
@@ -69,7 +69,7 @@ class PanelViewController: UIViewController {
             }
         }
         
-        private func actionsItems(let slidingPanelController: SlidingPanelController?) -> [Item] {
+        private func actionsItems(slidingPanelController: SlidingPanelController?) -> [Item] {
             guard let centerViewController = (slidingPanelController?.centerViewController as? UINavigationController)?.viewControllers.first as? CenterViewController else { return [] }
             
             let topPanelActionText: String
@@ -136,7 +136,16 @@ class PanelViewController: UIViewController {
                     (NSLocalizedString("panel_view_section_opening_gestures_dragging_content").capitalizedString, false, nil)]
         }
         
-        private var panelWidthItems: [Item] {
+        private func panelWidthHeightItems(slidingPanelController: SlidingPanelController?) -> [Item] {
+//            let slidingPanelWidth = slidingPanelController?.view.bounds.width
+//            let slidingPanelHeight = slidingPanelController?.view.bounds.height
+//            
+//            let modifyS
+//            
+//            switch slidingPanelController?.panelSideDisplayed {
+//                case .
+//            }
+            
             return [(NSLocalizedString("panel_view_section_panel_width_100").capitalizedString, false, nil),
                     (NSLocalizedString("panel_view_section_panel_width_75").capitalizedString, false, nil),
                     (NSLocalizedString("panel_view_section_panel_width_50").capitalizedString, false, nil),
@@ -156,26 +165,23 @@ class PanelViewController: UIViewController {
                     (NSLocalizedString("panel_view_section_status_bar_smoothly").capitalizedString, false, nil)]
         }
         
-        private var title: String {
+        private func title(slidingPanelController: SlidingPanelController?) -> String {
             let title: String
             
             switch self {
-            case .PanelWidth:
-                title = NSLocalizedString("panel_view_section_panel_width_title")
-            case .Animation:
-                title = NSLocalizedString("panel_view_section_animation_title")
-            case .StatusBar:
-                title = NSLocalizedString("panel_view_section_status_bar_title")
-            case .OpeningGestures:
-                title = NSLocalizedString("panel_view_section_opening_gestures_title")
-            case .ClosingGestures:
-                title = NSLocalizedString("panel_view_section_closing_gestures_title")
-            case .CenterViewInteraction:
-                title = NSLocalizedString("panel_view_section_center_view_interaction_title")
-            case .Actions:
-                title = NSLocalizedString("panel_view_section_actions_title")
-            case .ResetViews:
-                title = NSLocalizedString("panel_view_section_reset_views_title")
+            case .PanelWidthHeight:
+                if let panelSideDisplayed = slidingPanelController?.panelSideDisplayed where panelSideDisplayed == .Left || panelSideDisplayed == .Right {
+                    title = NSLocalizedString("panel_view_section_panel_width_title")
+                } else {
+                    title = NSLocalizedString("panel_view_section_panel_height_title")
+                }
+            case .Animation:                title = NSLocalizedString("panel_view_section_animation_title")
+            case .StatusBar:                title = NSLocalizedString("panel_view_section_status_bar_title")
+            case .OpeningGestures:          title = NSLocalizedString("panel_view_section_opening_gestures_title")
+            case .ClosingGestures:          title = NSLocalizedString("panel_view_section_closing_gestures_title")
+            case .CenterViewInteraction:    title = NSLocalizedString("panel_view_section_center_view_interaction_title")
+            case .Actions:                  title = NSLocalizedString("panel_view_section_actions_title")
+            case .ResetViews:               title = NSLocalizedString("panel_view_section_reset_views_title")
             }
             
             return title.uppercaseString
@@ -261,7 +267,14 @@ class PanelViewController: UIViewController {
     private func updateTableViewData() {
         let slidingPanelController = self.slidingPanelController
         
-        self.availableSections = [.PanelWidth, .Animation, .StatusBar, .OpeningGestures, .ClosingGestures, .CenterViewInteraction, .Actions(slidingPanelController), .ResetViews]
+        self.availableSections = [.PanelWidthHeight(slidingPanelController),
+                                  .Animation,
+                                  .StatusBar,
+                                  .OpeningGestures,
+                                  .ClosingGestures,
+                                  .CenterViewInteraction,
+                                  .Actions(slidingPanelController),
+                                  .ResetViews]
     }
     
     private func fillCell(cell: UITableViewCell, withItem item: Item) {
@@ -315,7 +328,7 @@ extension PanelViewController: UITableViewDelegate {
 
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let titleLabel = UILabel()
-        titleLabel.text = self.availableSections[section].title
+        titleLabel.text = self.availableSections[section].title(self.slidingPanelController)
         titleLabel.font = UIFont.systemFontOfSize(15)
         titleLabel.textColor = self.tableViewSectionHeaderTextColor
         
